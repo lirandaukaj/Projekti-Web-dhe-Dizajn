@@ -1,0 +1,138 @@
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+#section1{
+  background-color: #F5E7B2;
+  min-height: 80px;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 13px;
+  height: 77px;
+}
+#text-logo{
+  width: 120px;
+  margin-left: -25px;
+  margin-top: 8px;
+}
+#text-logo h1{
+  color: #973131;
+  font-size: 32px;
+  font-weight: bold;
+}
+#logo img{
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 120px;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+nav ul{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
+}
+nav ul li{
+margin-left: 40px;
+list-style-type: none;
+}
+nav ul li a{
+text-decoration: none;
+color: #973131;
+font-size: 20px;
+font-weight: bold;
+}
+nav ul li button{
+padding: 13px 23px;
+color: white;
+background-color: #973131;
+border: none;
+font-weight: bold;
+border-radius: 7px;
+font-size: 13px;
+margin-right: 20px;
+cursor: pointer;
+}
+
+#section2{
+display: flex;
+justify-content: center;
+background-color: #973131;
+min-height: 680px;
+}
+
+#loginform p{
+font-size: 45px;
+font-weight: bold;
+color: #F5E7B2;
+padding: 10px 15px;
+margin-top: 90px;
+}
+
+.forma{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: #E0A75E;
+width: 400px;
+height: 500px;
+margin-left: 150px;
+border-radius: 25px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+}
+.forma input{
+padding: 20px 42px;
+margin-bottom: 18px;
+background-color: #F5E7B2;
+color: #973131;
+border-radius: 22px;
+border: none;
+}
+
+.forma button{
+padding: 20px 42px;
+background-color: #E0A75E;
+border: 3px solid #973131;
+border-radius: 22px;
+font-weight: bold;
+font-size: 17px;
+color: #973131;
+margin-left: 45px;
+
+}
+
+.forma button:hover{
+transition: 0.5s ease-in-out;
+background-color: #973131;
+color: #F5E7B2;
+cursor: pointer;
+}
+#acc{
+margin-bottom: -40px;
+}
+#acc button{
+background-color: #E0A75E;
+color: #973131;
+border: none;
+font-size: 15px;
+font-weight: bold;
+/* margin-top: 60px; */
+margin-left: 10px;
+}
+#acc button:hover{
+transition: 0.5s ease-in-out;
+font-size: 16px;
+cursor: pointer;
+}
