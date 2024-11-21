@@ -168,3 +168,48 @@
     color: black;
     height: auto;
    }
+   .card1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 300px;
+    height: 470px;
+    border: 3px solid #973131;
+    border-radius: 7px;
+    margin-top: 40px;
+    margin-right: 50px;
+    transition:transform  0.5s ease-out;
+   }
+   .card1:hover{
+    transform: scale(1.05);
+   }
+   .card1 img{
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+  .description1{
+    font-size: 15px;
+    font-style: italic;
+    line-height: 15px;
+    padding: 8px;
+    color: black;
+    height: auto;
+    }
+  .card1 button{
+    background-color: #973131;
+    color: #F5E7B2;
+    padding: 8px 11px;
+    border: #973131;
+    border-radius: 4px;
+    margin: 8px;
+    font-weight: bold;
+  }
+  .card1 button:hover{
+    color: #973131;
+    background-color: #F5E7B2;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #973131;
+  }
