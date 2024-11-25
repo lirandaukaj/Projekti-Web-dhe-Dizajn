@@ -80,7 +80,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid #973131;
+    border-top: 3px solid #973131;
     border-radius: 7px;
     padding: 20px;
    }
