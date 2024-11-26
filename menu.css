@@ -213,3 +213,49 @@
     transition: 0.3s ease-in-out;
     border: 1px solid #973131;
   }
+  .section4{
+    background-color: #F1C891;
+    height: 270px;
+    color: #973131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width:150px;
+}
+.logo h1{
+   margin-left: -35px;
+   margin-top: 8px;
+   font-size: 34px;
+}
+.links{
+   display: flex;
+   flex-direction: column;
+   line-height: 22px;
+}
+.links a{
+    text-decoration: none;
+    color: #973131;
+    font-weight: bold;
+}
+.links a:hover{
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+}
+.links h3{
+    font-weight: bold;
+    font-size: 25px;
+}
+.contact{
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 33px;
+    text-align: justify;
+    line-height: 25px;
+}

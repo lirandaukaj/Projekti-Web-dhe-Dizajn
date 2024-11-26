@@ -108,9 +108,10 @@
     font-size: 23px;
     line-height: 27px;
     margin-top: 20px;
+    width:600px;
     position: relative;
     right: 70px;
-    bottom: 350px;
+    bottom: 450px;
     text-align: justify;
 }
 #section3{
@@ -120,18 +121,15 @@
     border-radius: 7px;
 }
 .pjesa1{
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; */
     align-content: center;
     margin-top: 70px;
-    margin-bottom:70px;
+    margin-bottom:-350px;
     margin-left: 70px;
     color: #973131;
 }
 .image{
     margin-right: 50px;
+    margin-bottom: 70px;
     transition: transform 0.5s ease-in-out;
 }
 .image:hover{
@@ -149,7 +147,7 @@
     align-items: center;
     align-content: center;
     margin-top: 70px;
-    margin-bottom:70px;
+    margin-bottom:0;
     margin-left: 70px;
     
 }
@@ -212,4 +210,51 @@
 .description .elem{
     font-weight: bold;
 }
+.section4{
+    background-color: #F1C891;
+    height: 270px;
+    color: #973131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width:150px;
+}
+.logo h1{
+   margin-left: -35px;
+   margin-top: 8px;
+   font-size: 34px;
+}
+.links{
+   display: flex;
+   flex-direction: column;
+   line-height: 22px;
+}
+.links a{
+    text-decoration: none;
+    color: #973131;
+    font-weight: bold;
+}
+.links a:hover{
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+}
+.links h3{
+    font-weight: bold;
+    font-size: 25px;
+}
+.contact{
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 33px;
+    text-align: justify;
+    line-height: 25px;
+}
+
 
