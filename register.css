@@ -66,73 +66,67 @@ cursor: pointer;
 }
 
 #section2{
-display: flex;
-justify-content: center;
-background-color: #973131;
-min-height: 680px;
-}
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 680px;
 
-#loginform p{
-font-size: 45px;
-font-weight: bold;
-color: #F5E7B2;
-padding: 10px 15px;
-margin-top: 90px;
-}
-
-.forma{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-color: #E0A75E;
-width: 400px;
-height: 500px;
-margin-left: 150px;
-border-radius: 25px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.8);
-}
-.forma input{
-padding: 20px 42px;
-margin-bottom: 18px;
-background-color: #F5E7B2;
-color: #973131;
-border-radius: 22px;
-border: none;
-}
-
-.forma button{
-padding: 20px 42px;
-background-color: #E0A75E;
-border: 3px solid #973131;
-border-radius: 22px;
-font-weight: bold;
-font-size: 17px;
-color: #973131;
-margin-left: 45px;
-
-}
-
-.forma button:hover{
-transition: 0.5s ease-in-out;
-background-color: #973131;
-color: #F5E7B2;
-cursor: pointer;
-}
-#acc{
-margin-bottom: -40px;
-}
-#acc button{
-background-color: #E0A75E;
-color: #973131;
-border: none;
-font-size: 15px;
-font-weight: bold;
-/* margin-top: 60px; */
-margin-left: 10px;
-}
-#acc button:hover{
-transition: 0.5s ease-in-out;
-font-size: 16px;
-cursor: pointer;
-}
+  background-color: #F5E7B2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    padding: 20px;
+    border-top: 3px solid #973131;
+  }
+  .container2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mainheading{
+    text-align: center;
+    width: 100%;
+  
+  }
+  .mainheading p{
+    font-size: 45px;
+    font-weight: bold;
+    color: #973131;
+    padding: 10px 15px;
+    margin-top: 40px;
+  
+    }
+    #text p{
+      font-size: 25px;
+      color: #973131;
+      position: relative;
+      top: 100px;
+    }
+    #text #bullet{
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 150px;
+      color: #973131;
+      line-height: 43px;
+      font-family: "Lora", "Georgia", serif;
+    }
+  .forma{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 570px;
+  background-color: #F5E7B2;
+  backdrop-filter: blur(5px); 
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+  margin-left: 900px;
+  margin-top: -470px;
+  
+  }
+ 
