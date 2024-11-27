@@ -129,4 +129,70 @@ cursor: pointer;
   margin-top: -470px;
   
   }
- 
+  .forma #txt{
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #973131;
+  }
+  .forma input{
+  width: 300px;
+  height: 50px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #973131;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-size: 15px;
+  }
+  .forma input:focus {
+    border-color: #973131;
+  }
+  .forma input::placeholder{
+    color: #973131;
+    font-size: 14px;
+    padding-left: 9px;
+  }
+  .forma button{
+  padding: 10px 90px;
+  border-radius: 30px;
+  border: 1px solid #973131;
+  outline: none;
+  font-size: 17px;
+  cursor: pointer;
+  color: white;
+  background-color: #973131;
+  margin-top: 15px;
+  margin-left: 30px;
+  }
+  
+  .forma button:hover{
+  transition: 0.5s ease-in-out;
+  background-color:#973131;
+  color: #973131;
+  cursor: pointer;
+  border: 2px solid #973131;
+  }
+  #acc{
+  margin-bottom: -40px;
+  }
+  #acc button{
+    padding: 5px 70px;
+    border-radius: 30px;
+    outline: none;
+    font-size: 17px;
+    cursor: pointer;
+    color: #973131;
+    background-color: #F5E7B2;
+    margin-top: 15px;
+    border: none;
+    margin-left: 4px;
+  }
+  #acc button:hover{
+  transition: 0.5s ease-in-out;
+  font-size: 16px;
+  cursor: pointer;
+  color: #973131;
+    background-color: #F5E7B2;
+  } 
+  
