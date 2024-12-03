@@ -32,7 +32,7 @@
       font-weight: bold;
     }
     #logo img{
-      margin-left: 20px;
+      margin-left: 10px;
       margin-top: 4px;
       width: 120px;
     
@@ -86,10 +86,10 @@
    }
    #main-text{
     color: #973131;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 40px;
+    margin-top: 40px;
    }
    .body-text{
     color: #973131;
@@ -104,10 +104,11 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+    margin-left: 50px;
    }
    #main-text{
     color: #973131;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 40px;
@@ -216,7 +217,7 @@
   }
   .section4{
     background-color: #F1C891;
-    height: 270px;
+    height: 210px;
     color: #973131;
     display: flex;
     justify-content: space-between;
@@ -244,18 +245,20 @@
     text-decoration: none;
     color: #973131;
     font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 9px;
 }
 .links a:hover{
-    font-size: 18px;
+    font-size: 22px;
     transition: 0.3s ease-in-out;
+    font-weight: bold;
 }
 .links h3{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 28px;
 }
 .contact{
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     margin-right: 33px;
     text-align: justify;
     line-height: 25px;
