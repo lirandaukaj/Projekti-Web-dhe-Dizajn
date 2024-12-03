@@ -52,6 +52,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 15px;
    }
    nav ul li{
     margin-left: 40px;
@@ -189,8 +190,9 @@
     border: 3px solid #973131;
     border-radius: 4px;
     background-color: #F5E7B2;
-    padding: 8px;
-    margin-left: 800px;
+    width: 300px;
+    padding: 6px 50px;
+    margin-left: 720px;
     margin-top: 30px;
     margin-right: 30px;
     color: #973131;
@@ -240,17 +242,19 @@
     text-decoration: none;
     color: #973131;
     font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 9px;
 }
 .links a:hover{
-    font-size: 18px;
+    font-size: 22px;
     transition: 0.3s ease-in-out;
+    font-weight: bold;
 }
 .links h3{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 28px;
 }
 .contact{
-    font-weight: bold;
     font-size: 18px;
     margin-right: 33px;
     text-align: justify;

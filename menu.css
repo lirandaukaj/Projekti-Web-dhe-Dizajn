@@ -80,7 +80,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 3px solid #973131;
+    border-top: 2px solid #973131;
     border-radius: 7px;
     padding: 20px;
    }
@@ -114,7 +114,7 @@
    }
    .body-text{
     color: #973131;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     justify-content: center;
     margin-top: 80px;
@@ -126,8 +126,8 @@
     flex-wrap: wrap;
     text-align: center;
     width: 300px;
-    height: 350px;
-    border: 3px solid #973131;
+    height: 390px;
+    border: 2px solid #973131;
     border-radius: 7px;
     margin-top: 40px;
     margin-right: 50px;
@@ -140,15 +140,18 @@
     width: 100%;
     height: auto;
     border-radius: 2px;
+    margin-top: -2px;
    }
    h3{
     color: #973131;
-    margin-bottom: 5px;
+    margin-bottom: 9px;
+    font-size:22px;
+    margin-top: 8px;
    }
    .card button{
     background-color: #973131;
     color: #F5E7B2;
-    padding: 8px 11px;
+    padding: 8px 50px;
     border: #973131;
     border-radius: 4px;
     margin: 8px;
@@ -162,8 +165,7 @@
    }
    .description{
     font-size: 15px;
-    font-style: italic;
-    line-height: 15px;
+    line-height: 21px;
     padding: 8px;
     color: black;
     height: auto;
@@ -175,8 +177,8 @@
     flex-wrap: wrap;
     text-align: center;
     width: 300px;
-    height: 470px;
-    border: 3px solid #973131;
+    height: 500px;
+    border: 2px solid #973131;
     border-radius: 7px;
     margin-top: 40px;
     margin-right: 50px;
@@ -192,8 +194,7 @@
   }
   .description1{
     font-size: 15px;
-    font-style: italic;
-    line-height: 15px;
+    line-height: 21px;
     padding: 8px;
     color: black;
     height: auto;
@@ -201,7 +202,7 @@
   .card1 button{
     background-color: #973131;
     color: #F5E7B2;
-    padding: 8px 11px;
+    padding: 8px 50px;
     border: #973131;
     border-radius: 4px;
     margin: 8px;
