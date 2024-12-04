@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
 }
 #section1{
-    background-color: #F5E7B2;
+    background-color: white;
     min-height: 80px;
 }
 header{
@@ -120,4 +120,81 @@ nav ul li button{
   border-radius: 8px;
   margin-top: -600px;
   margin-left: 50px;
+}
+#section4{
+  border-top: 2px solid #973131;
+  color: #973131;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+#titulli{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#titulli h1{
+  margin-top: 50px;
+  font-size: 50px;
+  font-weight: bold;
+}
+#tekst{
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+  flex-wrap: wrap;
+}
+#tekst p{
+  font-size: 36px;
+  font-weight: bold;
+}
+.foodcontainer{
+  display: flex;
+  justify-content: center;
+  gap: 170px;
+  margin-top: 120px;
+  flex-wrap: wrap;
+}
+.foto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.foto img{
+  width: 300px;
+  height: 300px;
+  border: 2px solid #973131;
+  border-radius: 250px;
+}
+.foto img:hover{
+  transition: 0.5s ease-in-out;
+  transform: scale(1.1);
+}
+.foto p{
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 30px;
+}
+#butoni{
+  display: flex;
+  justify-content: center;
+  margin-top: 110px;
+  flex-wrap: wrap;
+}
+#butoni button{
+  border: none;
+  border-radius: 10px;
+  padding: 13px 141px;
+  background-color: #973131;
+  color: #F5E7B2;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+#butoni button:hover{
+  background-color: #F5E7B2;
+  border:2px solid #973131;
+  color: #973131;
+  transition: 0.3s ease-in-out;
 }

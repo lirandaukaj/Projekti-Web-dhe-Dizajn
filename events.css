@@ -5,7 +5,7 @@
   }
   
   #section1{
-    background-color: #F5E7B2;
+    background-color: white;
     color: black;
     min-height: 80px;
   }
@@ -78,7 +78,7 @@
     cursor: pointer;
 }
 #section2{
-    background-color: #F5E7B2;
+    background-color: white;
     min-height: 300px;
     display: flex;
     justify-content: center;
@@ -116,7 +116,7 @@
     text-align: justify;
 }
 #section3{
-    background-color: #F5E7B2;
+    background-color: white;
     color: #333333;
     border-top: 2px solid #973131;
     border-radius: 7px;
@@ -212,13 +212,14 @@
     font-weight: bold;
 }
 .section4{
-    background-color:  #F1C891;
+    background-color: #F5E7B2;
     height: 210px;
     color: #973131;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
+    margin-top: 50px;
 }
 .logo{
     display: flex;
