@@ -65,3 +65,59 @@ nav ul li button{
   margin-right: 20px;
   cursor: pointer;
 }
+#section3{
+  min-height: 300px;
+  margin-top: 40px;
+  padding-bottom: 17px;
+  border-top: 2px solid #973131;
+}
+  .main-desc{
+  font-weight: bold;
+    color: #973131;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 80px;
+    padding-top: 30px;
+}
+.desc{
+  margin-left: 37px;
+  font-weight: bold;
+  color: #973131;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.text{
+  width: 780px;
+}
+#section3 p{
+  margin-bottom: 0px;
+  margin-left: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+#photoMain{
+  position: relative;
+  left: 900px;
+  bottom: 250px;
+  width: 500px;
+  height: 500px;
+}
+#photoMain img{
+  border-radius: 15px;
+  width: 500px;
+  height: 500px;
+}
+#chefs{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-right:730px;
+}
+#chefs img{
+  width: 200px;
+  height: 180px;
+  border-radius: 8px;
+  margin-top: -450px;
+  margin-left: 50px;
+}
