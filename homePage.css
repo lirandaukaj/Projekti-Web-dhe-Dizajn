@@ -100,13 +100,13 @@ nav ul li button{
   position: relative;
   left: 900px;
   bottom: 250px;
-  width: 500px;
-  height: 500px;
+  width: 440px;
+  height: 690px;
 }
 #photoMain img{
   border-radius: 15px;
   width: 500px;
-  height: 500px;
+  height: 670px;
 }
 #chefs{
   display: flex;
@@ -115,9 +115,9 @@ nav ul li button{
   margin-right:730px;
 }
 #chefs img{
-  width: 200px;
-  height: 180px;
+  width: 230px;
+  height: 310px;
   border-radius: 8px;
-  margin-top: -450px;
+  margin-top: -600px;
   margin-left: 50px;
 }
