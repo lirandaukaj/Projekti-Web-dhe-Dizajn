@@ -7,11 +7,7 @@
   background-color: white;
   min-height: 80px;
 }
-@media (max-width: 768px) {
-  #section1 {
-    min-height: 150px;
-  }
-}
+
 header{
   display: flex;
   align-items: center;
