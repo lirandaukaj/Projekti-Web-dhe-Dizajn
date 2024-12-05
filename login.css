@@ -134,6 +134,7 @@
     border-radius: 30px;
     margin-top: 20px;
     font-size: 15px;
+    padding-left: 15px;
   }
   .forma input:focus{
     border-color: #973131;
@@ -141,7 +142,7 @@
   .forma input::placeholder{
     color: #973131;
     font-size: 14px;
-    padding-left: 9px;
+    padding-left: 10px;
   }
   .forma button{
     padding: 10px 90px;

@@ -45,6 +45,10 @@ nav ul{
   width: 100%;
 }
 nav ul li{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
   margin-left: 40px;
   list-style-type: none;
 }
@@ -66,15 +70,14 @@ nav ul li button{
   cursor: pointer;
 }
 #section3{
-  min-height: 300px;
+  max-height: 950px;
   margin-top: 40px;
-  padding-bottom: 17px;
   border-top: 2px solid #973131;
 }
   .main-desc{
   font-weight: bold;
     color: #973131;
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
     margin-bottom: 80px;
     padding-top: 30px;
@@ -83,7 +86,7 @@ nav ul li button{
   margin-left: 37px;
   font-weight: bold;
   color: #973131;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 20px;
 }
 .text{
@@ -134,11 +137,11 @@ nav ul li button{
   justify-content: center;
   flex-wrap: wrap;
 }
-#titulli h1{
+/* #titulli h1{
   margin-top: 50px;
   font-size: 50px;
   font-weight: bold;
-}
+} */
 #tekst{
   display: flex;
   justify-content: center;
@@ -176,13 +179,13 @@ nav ul li button{
   font-weight: bold;
   font-size: 30px;
 }
-#butoni{
+.butoni{
   display: flex;
   justify-content: center;
   margin-top: 110px;
   flex-wrap: wrap;
 }
-#butoni button{
+.butoni button{
   border: none;
   border-radius: 10px;
   padding: 13px 141px;
@@ -192,9 +195,23 @@ nav ul li button{
   font-weight: bold;
   margin-bottom: 40px;
 }
-#butoni button:hover{
+.butoni button:hover{
   background-color: #F5E7B2;
   border:2px solid #973131;
   color: #973131;
   transition: 0.3s ease-in-out;
+}
+
+#section5{
+  border-top: 2px solid #973131;
+} 
+#txt{
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 25px;
+  color: #973131;
 }
