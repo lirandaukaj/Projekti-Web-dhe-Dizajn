@@ -200,7 +200,7 @@ nav ul li button{
 #section5 {
   border-top: 2px solid #973131;
   border-radius: 8px;
-  background-image: url(img/bckk.png);
+  background-image: url(../img/bckk.png);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -214,7 +214,7 @@ nav ul li button{
   justify-content: flex-start; 
   align-items: flex-start;
   flex-wrap: wrap;
-  font-size: 23px;
+  font-size: 20px;
   color: white;
   width: 60%;
   min-height: 350px;
