@@ -48,6 +48,7 @@ if(!passwordValidim(password.value)){
   password.focus();
   return false;
 }
+window.location.href = "homePage.html";
 return true;
 }
 form.addEventListener('submit',formValidation);

@@ -11,9 +11,18 @@ const passwordValidimi =(password)=>{
     return passwordRegex.test(password);
 }
 
-function formValidation(event){
+function formaValidation(event){
     event.preventDefault();
-
+    if(email.value===""){
+        alert("Please enter your email");
+        email.focus();
+        return false;
+    }
+    if(password.value===""){
+        alert("Please enter your password");
+        password.focus();
+        return false;
+    }
     if(!emailValidimi(email.value)){
         alert("Please write a valid email using specific symbols");
         email.focus();
@@ -24,6 +33,7 @@ function formValidation(event){
         password.focus();
         return false;
     }
+    window.location.href = "homePage.html";
     return true;
 }
-form.addEventListener('submit',formValidation);
+form.addEventListener('submit',formaValidation);

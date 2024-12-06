@@ -69,6 +69,39 @@ nav ul li button{
   margin-right: 20px;
   cursor: pointer;
 }
+#section2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+}
+#images img{
+  max-width: 800px;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.button button{
+  border: none;
+  border-radius: 10px;
+  padding: 13px 141px;
+  background-color: #973131;
+  color: #F5E7B2;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: -20px;
+}
+.button button:hover{
+  background-color: #F5E7B2;
+  border:2px solid #973131;
+  color: #973131;
+  transition: 0.3s ease-in-out;
+}
 #section3{
   max-height: 950px;
   margin-top: 40px;

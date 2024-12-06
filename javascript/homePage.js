@@ -1,12 +1,12 @@
+var i = 0;
+var imagesArray = [
+    "img/foto1.png",
+    "img/foto2.png",
+    "img/foto3.png"
+]
+function changeImg(){
+    document.getElementById('images').src = imagesArray[i];
+    if(i<imagesArray.length - 1){
+        i++;
 
-//   const foto3 = document.getElementById("foto3");
 
-// function prevFunction(){
-//   const foto1 = document.getElementById("foto1");
-//   const foto1 = document.querySelector("images");
-//    foto1.style.marginLeft="0%";
-// }
-// function nextFunction(){
-//   const foto2 = document.getElementById("foto2");
-//    foto2.style.marginLeft="25%";
-// }
