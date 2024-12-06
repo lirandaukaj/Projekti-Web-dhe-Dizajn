@@ -137,11 +137,7 @@ nav ul li button{
   justify-content: center;
   flex-wrap: wrap;
 }
-/* #titulli h1{
-  margin-top: 50px;
-  font-size: 50px;
-  font-weight: bold;
-} */
+
 #tekst{
   display: flex;
   justify-content: center;
@@ -201,56 +197,56 @@ nav ul li button{
   color: #973131;
   transition: 0.3s ease-in-out;
 }
-#section5{
+#section5 {
   border-top: 2px solid #973131;
+  border-radius: 8px;
   background-image: url(img/bckk.png);
-  /* filter: blur(5px) saturate(0.5);
-  opacity: 1; */
   background-size: cover;
   background-repeat: no-repeat;
-} 
-
-#txt{
   display: flex;
-  text-align: justify;
+  justify-content: space-between;
   align-items: flex-start;
-  padding-top: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  font-size: 21px;
-  color: white;
-  flex-direction: column;
-  height: 350px;
+  flex-wrap: wrap;
 }
-#txt p{
+#txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-size: 23px;
+  color: white;
+  width: 60%;
+  min-height: 350px;
+}
+
+#txt p {
   margin-bottom: 17px;
   line-height: 1.3;
   text-align: justify;
-  width: 620px;
+  margin-left: 25px;
 }
-#bullet{
+#bullet {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: flex-end;
-  font-size: 28px;
+  font-size: 27px;
   font-weight: bold;
   line-height: 1.4;
-  
+  color: white;
+  margin-top: -350px;
+  margin-right: 60px;
 }
-#bullet li{
-  justify-content: flex-end;
+
+.main-desc1{
+  font-weight: bold;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 80px;
+    padding-top: 30px;
 }
-/* #imgg{
-margin-top: -50px;
-}
-#imgg img{
-  height: 120px;
-  width: 310px;
-  margin-left: 600px;
-  margin-top: -180px;
-} */
 
 #section6{
   color: #973131;

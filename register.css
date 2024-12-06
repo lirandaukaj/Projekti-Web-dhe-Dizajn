@@ -93,34 +93,23 @@ cursor: pointer;
     align-items: center;
   }
   .mainheading{
+    justify-content: flex-start;
+    margin-top: 150px;
     text-align: center;
     width: 100%;
-  
+
   }
-  .mainheading p{
-    font-size: 45px;
-    font-weight: bold;
-    color: #973131;
-    padding: 10px 15px;
-    margin-top: -15px;
-    margin-right: 670px;
-  
-    }
-    #text p{
-      font-size: 25px;
-      color: #973131;
-      position: relative;
-      top: 100px;
-      left: 20px;
-    }
-    #text #bullet{
-      font-size: 22px;
+    .mainheading p{
+      font-size: 45px;
       font-weight: bold;
-      margin-top: 150px;
       color: #973131;
-      line-height: 43px;
+      padding: 10px 15px;
+      text-align: justify;
+    }
+    .mainheading #teksti{
+      font-weight: lighter;
+      font-size: 29px;
       font-family: "Lora", "Georgia", serif;
-      margin-left: 18px;
     }
   .forma{
   display: flex;
