@@ -112,7 +112,7 @@ nav ul li button{
     padding-top: 30px;
 }
 .desc{
-  margin-left: 37px;
+  margin-left: 70px;
   font-weight: bold;
   color: #973131;
   margin-bottom: 40px;
@@ -123,14 +123,14 @@ nav ul li button{
 }
 #section3 p{
   margin-bottom: 0px;
-  margin-left: 40px;
+  margin-left: 70px;
   font-size: 18px;
   line-height: 1.8;
   text-align: justify;
 }
 #photoMain{
   position: relative;
-  left: 900px;
+  left: 960px;
   bottom: 250px;
   width: 440px;
   height: 690px;
@@ -144,7 +144,7 @@ nav ul li button{
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  margin-right:730px;
+  margin-right:640px;
 }
 #chefs img{
   width: 230px;
@@ -375,4 +375,36 @@ nav ul li button{
   margin-right: 33px;
   text-align: justify;
   line-height: 25px;
+}
+@media only screen and ( max-width: 768px) {
+  #section1{
+    height: 350px;
+  }
+  header{
+    flex-direction: column;
+  }
+  #logo img{
+    margin-top: -10px;
+    margin-left: -20px;
+  }
+  #text-logo{
+    margin-top: -10px;
+    margin-left: 5px;
+  }
+  nav ul li{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 85px;
+    padding: 4px;
+  }
+  nav ul li button{
+    margin-left: 18px;
+    margin-top: 2px;
+  }
+  .links a, .contact{
+    font-size: 19px;
+  }
+  
 }

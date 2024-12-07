@@ -213,6 +213,37 @@
     text-align: justify;
     line-height: 25px;
 }
+@media only screen and (max-width: 768px) {
+  #section1{
+    height: 350px;
+  }
+  header{
+    flex-direction: column;
+  }
+  #logo img{
+    margin-top: -10px;
+    margin-left: -20px;
+  }
+  #text-logo{
+    margin-top: -10px;
+    margin-left: 5px;
+  }
+  nav ul li{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 85px;
+    padding: 4px;
+  }
+  nav ul li button{
+    margin-left: 18px;
+    margin-top: 2px;
+  }
+  .links a, .contact{
+    font-size: 19px;
+  }
+}
 
 
 

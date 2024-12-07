@@ -14,6 +14,7 @@ function changeImg(){
   
 }
 setInterval("changeImg()",3000);
-document.body.addEventListener('load',changeImg());
+document.body.addEventListener('load', changeImg());
+
 
 
