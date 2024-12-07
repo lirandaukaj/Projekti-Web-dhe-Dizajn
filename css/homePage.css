@@ -45,10 +45,6 @@ nav ul{
   width: 100%;
 }
 nav ul li{
-  /* display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap; */
   margin-left: 40px;
   list-style-type: none;
 }

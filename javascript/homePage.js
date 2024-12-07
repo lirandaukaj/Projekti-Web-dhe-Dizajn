@@ -8,5 +8,12 @@ function changeImg(){
     document.getElementById('images').src = imagesArray[i];
     if(i<imagesArray.length - 1){
         i++;
+    }else{
+        i=0;
+    }
+  
+}
+setInterval("changeImg()",3000);
+document.body.addEventListener('load',changeImg());
 
 

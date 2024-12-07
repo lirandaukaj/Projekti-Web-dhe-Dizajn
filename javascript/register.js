@@ -5,6 +5,16 @@ const password = document.getElementById("password")
 const buttoni=document.getElementById("buttoni");
 const form=document.getElementById("form");
 
+
+
+const nameValidim = (name)=>{
+  const nameRegex=/^([A-Za-z])+$/;
+  return nameRegex.test(name);
+}
+const lastNameValidim = (lastName)=>{
+  const lastNameRegex=/^([A-Za-z])+$/;
+  return lastNameRegex.test(lastName);
+}
 const emailValidim=(email)=>{
   const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
   return emailRegex.test(email.toLowerCase());
@@ -37,6 +47,16 @@ if(password.value===""){
   password.focus();
   return false;
 }
+if(!nameValidim(name.value)){
+  alert("Please write a valid name with alphabetic symbols");
+  name.focus();
+  return false;
+}
+if(!lastNameValidim(lastName.value)){
+  alert("Please write a valid last name with alphabetic symbols");
+  lastName.focus();
+  return false;
+}
 
 if(!emailValidim(email.value)){
   alert("Please write a valid email using specific symbols");
@@ -44,10 +64,11 @@ if(!emailValidim(email.value)){
   return false;
 }
 if(!passwordValidim(password.value)){
-  alert("The password must be at least 8 characters long,contain at least one uppercase letter,lowercase letters, a number and special character");
+  alert("Please write a valid password,the password must be at least 8 characters long,contain at least one uppercase letter,lowercase letters, a number and special character");
   password.focus();
   return false;
 }
+
 window.location.href = "homePage.html";
 return true;
 }
