@@ -1,7 +1,8 @@
-*{
+body{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   #section1{
@@ -208,7 +209,7 @@
 .description .elem{
     font-weight: bold;
 }
-.section4{
+/* .section4{
     background-color: #F5E7B2;
     height: 210px;
     color: #973131;
@@ -256,10 +257,65 @@
     margin-right: 33px;
     text-align: justify;
     line-height: 25px;
+} */
+.section4{
+  background-color: #F5E7B2;
+  /* height: 210px; */
+  color: #973131;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  margin-top: 50px;
 }
-@media only screen and (max-width: 768px){
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo img{
+  width:150px;
+}
+.logo h1{
+ margin-left: -35px;
+ margin-top: 39px;
+ font-size: 34px;
+}
+.links{
+ display: flex;
+ flex-direction: column;
+ line-height: 22px;
+}
+.links a{
+  text-decoration: none;
+  color: #973131;
+  font-weight: bold;
+  font-size: 21px;
+  margin-bottom: 9px;
+}
+.links a:hover{
+  font-size: 22px;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+}
+.links h3{
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.contact{
+  font-size: 20px;
+  margin-right: 33px;
+  text-align: justify;
+  line-height: 10px;
+}
+
+
+   @media only screen and (max-width: 768px) { 
+    body{
+        overflow-x: hidden;
+    }
     #section1{
-        height: 350px;
+        height: 390px;
     }
     header{
         flex-direction: column;
@@ -269,15 +325,18 @@
         margin-left: -40px;
     }
     #text-logo{
-        margin-top: -10px;
+        margin-top: -40px;
         margin-left: 5px;
+    }
+    nav ul{
+      margin-top: 3px;
     }
     nav ul li{
         width: 100%;
         text-align: center;
         justify-content: center;
         margin-top: 2px;
-        margin-right: 85px;
+        margin-right: 120px;
         padding: 4px;
     }
     nav ul li button{
@@ -287,18 +346,59 @@
     .links a , .contact{
         font-size: 14px;
     }
-}
+    .pjesa1, .description {
+        max-width: 40%;
+        padding: 10px;
+        margin: 0 auto;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      #section2{
+        height: auto;
+      }
+      .pjesa1 p{
+        margin-top: 570px;
+        margin-bottom: -420px;
+      }
+      .image1{
+        margin-left: 10px;
+      }
+      .description p{
+        width: 100%;
+      }
+    
+      .description h2 {
+        font-size: 20px;
+        text-align: center;
+      }
+     .image{
+        margin-top: 15px;
+     }
+      .description button {
+        padding: 8px;
+        width: 126px;
+        margin-left: 155px;
+        height: 36px;
+        font-size: 12px;
+      }
 
-@media only screen and (max-width: 600px) {
+}
+  
+  @media only screen and (max-width: 480px) {
     #text-logo h1 {
-        font-size: 28px;
+      font-size: 24px;
     }
+  
     nav ul li a {
-        font-size: 19px; 
+      font-size: 14px;
     }
-    .main-text, .body-text {
-        font-size: 19px; 
+  
+    .pjesa1 p, .description p {
+      font-size: 14px;
+    }
+  
+    .footer .contact {
+      font-size: 12px;
     }
   }
-
-
+  
