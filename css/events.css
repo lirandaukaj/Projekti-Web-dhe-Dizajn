@@ -385,6 +385,38 @@ body{
 }
   
   @media only screen and (max-width: 480px) {
+   #section2{
+    height: auto;
+   }
+   .pjesa1 p{
+    margin-top: 430px;
+    margin-bottom: -420px;
+    width: 300px;
+    margin-left: 15px;
+    font-size: 20px;
+   }
+   .image1{
+    margin-left: -70px;
+   }
+   .image1 img{
+    width: 330px;
+   }
+   .pjesa2{
+    flex-direction: column;
+   }
+   .description{
+    margin-left:-8px;
+  }
+  .description p{
+    width:300px;
+  }
+  .description h2{
+    font-size: 20px;
+  }
+  .description button{
+    margin-left: -8px;
+    margin-bottom: 20px;
+  }
     #text-logo h1 {
       font-size: 24px;
     }
@@ -401,4 +433,3 @@ body{
       font-size: 12px;
     }
   }
-  
