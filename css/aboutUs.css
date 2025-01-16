@@ -1,0 +1,165 @@
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+#section1{
+  background-color: white;
+  color: black;
+  min-height: 80px;
+}
+.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 13px;
+   height: 77px;
+   width: 100%;
+  }
+  
+  #text-logo{
+    width: 120px;
+    margin-left: -25px;
+    margin-top: 8px;
+  }
+ #text-logo h1{
+    color: #973131;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  #logo img{
+    margin-left: -30px;
+    margin-top: 4px;
+    width: 120px;
+  
+  }
+
+ nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  
+ }
+ nav ul{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+ }
+ nav ul li{
+  display: flex;
+justify-content: flex-end;
+align-items: center;
+flex-wrap: wrap;
+  margin-left: 40px;
+  list-style-type: none;
+  
+ }
+ nav ul li a{
+  text-decoration: none;
+  color: #973131;
+  font-size: 20px;
+  font-weight: bold;
+ }
+ nav ul li button{
+  padding: 13px 23px;
+  color: white;
+  background-color: #973131;
+  border: none;
+  font-weight: bold;
+  border-radius: 7px;
+  font-size: 13px;
+  margin-right: 20px;
+  cursor: pointer;
+ }
+ #section2{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 2px solid #973131;
+  border-radius: 7px;
+  padding: 20px;
+ }
+ #main-text{
+  color: #973131;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+ }
+ #cooking-team{
+  margin-top: 30px;
+ }
+ #cooking-team img{
+  width: 866px;
+  height: 374px;
+ }
+ #desc{
+  width: 1300px;
+ }
+#desc p{
+  margin-top: 20px;
+  text-align: justify;
+  font-size: 23px;
+  line-height: 26px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #973131;
+} 
+
+
+@media only screen and (max-width: 768px){
+  #section1{
+    height: 350px;
+  }
+  header{
+    flex-direction: column;
+  }
+  #logo img{
+    margin-top: -10px;
+  }
+  #text-logo{
+    margin-top: -10px;
+    margin-left: 5px;
+  }
+  nav ul li{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 85px;
+    padding: 4px;
+  }
+  nav ul li button{
+    margin-left: 18px;
+    margin-top: 2px;
+  }
+  .links a , .contact{
+    font-size: 19px;
+  }
+  #main-text{
+    width: 300px;
+    font-size: 24px;
+    margin-right: 650px;
+  }
+  #cooking-team img{
+    height: 315px;
+    width: 595px;
+    margin-right: 560px;
+  }
+  #desc p{
+    font-size: 18px;
+    height: 260px;
+    width: 615px;
+  }
+}
