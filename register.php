@@ -18,11 +18,11 @@
     
             <nav>
               <ul>
-                <li><a href="homePage.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-                <li><a href="register.html"><button>Join Us</button></a></li>
+                <li><a href="homePage.php">Home</a></li>
+                <li><a href="menu.php">Menu</a></li>
+                <li><a href="events.php">Events</a></li>
+                <li><a href="aboutUs.php">About Us</a></li>
+                <li><a href="register.php"><button>Join Us</button></a></li>
               </ul>
             </nav>
           </header>
@@ -46,7 +46,7 @@
                     <button type="submit" id="buttoni">JOIN US</button> 
                 </form>
                 <div id="acc">
-                  <button onclick="location.href='login.html'">Already have an account?</button>
+                  <button onclick="location.href='login.php'">Already have an account?</button>
 
                 </div>
             </div>
@@ -62,11 +62,11 @@
       <h1>Seray</h1>
     </div>
     <div class="links">
-      <a href="homePage.html">HOME</a>
-      <a href="menu.html">MENU</a>
-      <a href="events.html">EVENTS</a>
-      <a href="aboutUs.html">ABOUT US</a>
-      <a href="register.html">JOIN US</a>
+      <a href="homePage.php">HOME</a>
+      <a href="menu.php">MENU</a>
+      <a href="events.php">EVENTS</a>
+      <a href="aboutUs.php">ABOUT US</a>
+      <a href="register.php">JOIN US</a>
     </div>
     <div class="contact">
       <h3>RESTAURANT INFORMATION</h3><br>

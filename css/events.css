@@ -378,7 +378,18 @@ body{
       font-size: 14px;
     }
   
-    .footer .contact {
+    /* .footer .contact {
       font-size: 12px;
+    } */
+    .links{
+      font-size: 18px;
+      margin-left: 8px;
+    }
+    .contact h3{
+      font-size: 20px;
+    }
+    .contact{
+      font-size: 16px;
+      margin-left: 15px;
     }
   }

@@ -19,11 +19,11 @@
         
         <nav>
           <ul>
-            <li><a href="homePage.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="aboutUs.html">About Us</a></li>
-            <li><a href="register.html"><button>Join Us</button></a></li>
+            <li><a href="homePage.php">Home</a></li>
+            <li><a href="menu.php">Menu</a></li>
+            <li><a href="events.php">Events</a></li>
+            <li><a href="aboutUs.php">About Us</a></li>
+            <li><a href="register.php"><button>Join Us</button></a></li>
           </ul>
         </nav>
       </header>
@@ -86,7 +86,7 @@
         </div>
      </div>
      <div class="butoni">
-     <a href="menu.html"><button>MENU</button></a> 
+     <a href="menu.php"><button>MENU</button></a> 
    </div>
 
     </div>
@@ -108,7 +108,7 @@
       <li>REWARDS FOR LOYALTY</li>
     </ul>
     <div class="butoni">
-      <a href="register.html"><button>Join Us</button></a>
+      <a href="register.php"><button>Join Us</button></a>
     </div>
   </div>
   </section>
@@ -127,7 +127,7 @@
       Seasonal celebrations at Seray bring an extra dose of joy, whether it's a festive holiday feast, a summer soirée, or a cozy winter gathering. No matter the occasion, our events are crafted with care to surprise, delight, and inspire.</p>
     </div>
     <div class="butoni">
-      <a href="events.html"><button>Events</button></a>
+      <a href="events.php"><button>Events</button></a>
     </div>
   </section>
   <script src="javascript/homePage.js"></script>
@@ -139,11 +139,11 @@
       <h1>Seray</h1>
     </div>
     <div class="links">
-      <a href="homePage.html">HOME</a>
-      <a href="menu.html">MENU</a>
-      <a href="events.html">EVENTS</a>
-      <a href="aboutUs.html">ABOUT US</a>
-      <a href="register.html">JOIN US</a>
+      <a href="homePage.php">HOME</a>
+      <a href="menu.php">MENU</a>
+      <a href="events.php">EVENTS</a>
+      <a href="aboutUs.php">ABOUT US</a>
+      <a href="register.php">JOIN US</a>
     </div>
     <div class="contact">
       <h3>RESTAURANT INFORMATION</h3><br>
