@@ -311,4 +311,21 @@
   .main-text, .body-text {
       font-size: 19px; 
   }
+  .logo{
+    margin-right: 20px;
+  }
+  .logo h1{
+    font-size: 28px;
+  }
+  .links{
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  .contact h3{
+    font-size: 20px;
+  }
+  .contact{
+    font-size: 16px;
+    margin-left: 15px;
+  }
 } 
