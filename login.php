@@ -41,9 +41,9 @@
                         Seray
                     </div>
 
-                    <form>
-                        <input type="text" placeholder="Email" id="email"><br>
-                        <input type="password" placeholder="Password" id="password"><br>
+                    <form action ="php/logIn.php" method="POST">
+                        <input type="text" placeholder="Email" name="email" required><br>
+                        <input type="password" placeholder="Password" name="password" required><br>
                         <button type="submit">LOG IN</button>
                     </form>
                 </div>

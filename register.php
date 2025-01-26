@@ -38,11 +38,11 @@
               <div id="txt">
                 Seray
               </div>
-                <form  id="form">
-                    <input type="text" placeholder="First Name" id="name"><br>
-                    <input type="text" placeholder="Last Name" id="lastname"><br>
-                    <input type="text" placeholder="Email" id="email"><br>
-                    <input type="password" placeholder="Password" id="password"><br>
+                <form  id="form" action="login.php" method="POST">
+                    <input type="text" placeholder="First Name" name="name" required><br>
+                    <input type="text" placeholder="Last Name" name="surname" required><br>
+                    <input type="text" placeholder="Email" name="email" required><br>
+                    <input type="password" placeholder="Password" name="password" required><br>
                     <button type="submit" id="buttoni">JOIN US</button> 
                 </form>
                 <div id="acc">
