@@ -39,10 +39,10 @@
                 Seray
               </div>
                 <form  id="form" action="login.php" method="POST">
-                    <input type="text" placeholder="First Name" name="name" required><br>
-                    <input type="text" placeholder="Last Name" name="surname" required><br>
-                    <input type="text" placeholder="Email" name="email" required><br>
-                    <input type="password" placeholder="Password" name="password" required><br>
+                    <input type="text" placeholder="First Name" name="name" id="name" required><br>
+                    <input type="text" placeholder="Last Name" name="surname" id="lastname" required><br>
+                    <input type="text" placeholder="Email" name="email" id="email" required><br>
+                    <input type="password" placeholder="Password" name="password" id="password" required><br>
                     <button type="submit" id="buttoni">JOIN US</button> 
                 </form>
                 <div id="acc">

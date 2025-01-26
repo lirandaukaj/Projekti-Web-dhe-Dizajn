@@ -42,8 +42,8 @@
                     </div>
 
                     <form action ="php/logIn.php" method="POST">
-                        <input type="text" placeholder="Email" name="email" required><br>
-                        <input type="password" placeholder="Password" name="password" required><br>
+                        <input type="text" placeholder="Email" name="email" id="email"required><br>
+                        <input type="password" placeholder="Password" name="password" id="password" required><br>
                         <button type="submit">LOG IN</button>
                     </form>
                 </div>

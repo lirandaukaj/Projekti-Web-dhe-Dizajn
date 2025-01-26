@@ -1,3 +1,24 @@
+<?php
+include_once 'php/Database.php';
+$db = new Database();
+$conn = $db->getConnection();
+
+$query = "SELECT * FROM aboutus";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$aboutUsContent = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($aboutUsContent as $key => $content) {
+  if (isset($content['lista'])) {
+      $listItems = explode('.', $content['lista']); 
+      $listItems = array_map('trim', $listItems); 
+      $listItems = array_filter($listItems);
+      $aboutUsContent[$key]['listArray'] = $listItems;
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,55 +53,51 @@
 </section>
 <section id="section2">
   <div id="main-text">
-    <h1 id="menu">ABOUT US</h1>
+    <h1 id="menu"><?php echo $aboutUsContent[0]['title']; ?></h1>
   </div>
   <div id="cooking-team">
-   <img src="img/chefs.jpg" alt="Chefs">
+   <img src="img/<?php echo $aboutUsContent[0]['image']; ?>" alt="Chefs">
   </div>
   <div id="desc">
-    <p>At our restaurant, we take immense pride in our dedicated staff, whose unwavering commitment ensures an exceptional dining experience for every guest. Our team is a harmonious blend of seasoned chefs and enthusiastic cooks, all driven by a shared passion for culinary excellence. Each day, the kitchen buzzes with creativity as our talented cooks collaborate, bringing innovative dishes to life while perfecting classic recipes. Their dedication extends beyond just preparing meals; they infuse every dish with love and meticulous attention to detail, ensuring that each plate is a masterpiece.
-
-      The positive energy among our staff is palpable, creating a warm and welcoming atmosphere that extends from the kitchen to the dining room. Their camaraderie and mutual respect form the backbone of our restaurant’s success, fostering an environment where everyone thrives. Our cooks, with their diverse backgrounds and unique talents, work tirelessly to exceed expectations, turning every meal into a memorable experience. Their joy and dedication are the secret ingredients that make our restaurant a beloved destination for food lovers.</p>
+    <p><?php echo $aboutUsContent[0]['text']; ?></p>
   </div>
 </section>
   
   <section id="section3">
     <div id="heading">
-      <h1>OUR HISTORY</h1>
+      <h1><?php echo $aboutUsContent[1]['title'];?></h1>
     </div>
     <div id="desc1">
-      <p>Our restaurant was born from a simple yet profound idea: to bring people together through the universal language of food. Founded in 2019 by Julian Moretti, a passionate food lover with a dream of creating a space where culinary traditions met innovation, our journey began as a labor of love. Julian's background in culinary training and cultural inspiration shaped the vision for a restaurant that would celebrate both authentic flavors and modern techniques. Starting as a small, cozy eatery with just a handful of team members, Julian worked tirelessly to establish a place where fresh ingredients, exceptional service, and a welcoming atmosphere were paramount. Over the years, the restaurant has grown into a vibrant community favorite, yet it remains deeply rooted in Julian's original vision—a love for great food, warm hospitality, and a commitment to making every guest feel at home.</p>
+      <p><?php echo $aboutUsContent[1]['text'];?></p>
     </div>
   </section>
 
   <section id="section4">
     <div id ="header">
-      <h1>MISSION AND QUALITY</h1>
+      <h1><?php echo $aboutUsContent[2]['title'];?></h1>
     </div>
     <div id="desc2">
-      <p>Our mission is to craft authentic dishes with the finest organic ingredients, embodying our passion for culinary excellence and the spirit of teamwork, to deliver an exceptional dining experience that delights every guest.</p>
+      <p><?php echo $aboutUsContent[2]['text'];?></p>
     </div>
-    <img src="img/staff2.png" alt="" id="image">
+    <img src="img/<?php echo $aboutUsContent[2]['image'];?>" alt="" id="image">
     <div id="list">
       <ul>
-        <li>Use of fresh, organic, and locally sourced ingredients.</li>
-        <li>Expertise of skilled chefs passionate about their craft.</li>
-        <li>Elegant and sophisticated interior design.</li>
-        <li>Prompt and attentive care to ensure customer satisfaction.</li>
-        <li>Eco-friendly practices, such as reusable materials and minimal packaging.</li>
-        <li>Attention to creating moments that guests will cherish and remember.</li>
-        <li>A work environment that promotes creativity and innovation.</li>
+        <?php
+foreach ($aboutUsContent[2]['listArray'] as $item) {
+  echo "<li>" . htmlspecialchars($item) . "</li>";
+}
+        ?>
       </ul>
     </div>
   </section>
   <section id="section5">
     <div id="header1">
-      <h1>AWARDS</h1>
+      <h1><?php echo $aboutUsContent[3]['title'];?></h1>
     </div>
     <div id="desc3">
-      <p>We are thrilled to share that our restaurant has been honored with the prestigious Award! This recognition celebrates our unwavering commitment to excellence, from using the finest organic ingredients to creating unforgettable Italian dishes with passion and precision. It is a testament to the hard work and teamwork of our dedicated staff, who strive every day to provide an exceptional dining experience. We are deeply grateful to our valued guests for their continued support and trust, which inspire us to reach new heights in culinary artistry.</p>
+      <p><?php echo $aboutUsContent[3]['text']?></p>
     </div>
-    <img src="img/images.png" alt="" id="image1">
+    <img src="img/<?php echo $aboutUsContent[3]['image'] ?>" alt="" id="image1">
 
 
   </section>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'database.php';
+include_once 'Database.php';
 include_once 'User.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -17,4 +17,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     } else{
         echo "Invalid login credentials!";
     }
-}
+} 
