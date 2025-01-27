@@ -38,7 +38,7 @@
               <div id="txt">
                 Seray
               </div>
-                <form  id="form" action="login.php" method="POST">
+                <form  id="form" action="register.php" method="POST">
                     <input type="text" placeholder="First Name" name="name" id="name" required><br>
                     <input type="text" placeholder="Last Name" name="surname" id="lastname" required><br>
                     <input type="text" placeholder="Email" name="email" id="email" required><br>

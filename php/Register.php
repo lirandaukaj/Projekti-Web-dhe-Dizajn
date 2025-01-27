@@ -3,7 +3,7 @@ include_once 'Database.php';
 include_once 'User.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $db = new database();
+    $db = new Database();
     $connection = $db->getConnection();
     $user = new User($connection);
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     
     if ($user->register($name, $surname, $email, $password)) {
-        header("Location: login.php"); 
+        header("Location: Login.php"); 
         exit;
     } else {
         echo "Error registering user!";
