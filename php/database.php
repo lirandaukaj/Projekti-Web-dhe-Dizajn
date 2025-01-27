@@ -1,5 +1,5 @@
 <?php
-class database{
+class Database{
     private $host = 'localhost';
     private $dbname = 'projekti';
     private $username = 'root';
