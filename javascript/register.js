@@ -69,7 +69,7 @@ if(!passwordValidim(password.value)){
   return false;
 }
 
-window.location.href = "homePage.html";
+window.location.href = "../login.php";
 return true;
 }
 form.addEventListener('submit',formValidation);

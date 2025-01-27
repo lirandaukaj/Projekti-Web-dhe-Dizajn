@@ -33,7 +33,7 @@ class User {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($password, $row['password'])) {
                 session_start();
-                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['id'] = $row['id'];
                 $_SESSION['email'] = $row['email'];
                 return true;
             }
