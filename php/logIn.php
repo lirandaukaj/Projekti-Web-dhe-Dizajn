@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include_once 'Database.php';
 include_once 'User.php';
@@ -12,10 +12,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')  {
     $password = $_POST['password'];
 
     if($user->login($email, $password)) {
-        header("Location: homePage.php");
+        header("Location: ../homePage.php");
         exit;
     } else {
         echo "Invalid email or password";
     }
-}
+} 
+
 

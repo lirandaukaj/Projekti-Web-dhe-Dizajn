@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +44,7 @@
                     <input type="text" placeholder="Last Name" name="surname" id="lastname" required><br>
                     <input type="text" placeholder="Email" name="email" id="email" required><br>
                     <input type="password" placeholder="Password" name="password" id="password" required><br>
-                    <button type="submit" id="buttoni">JOIN US</button> 
+                    <button type="submit" name="butoni" id="buttoni">JOIN US</button> 
                 </form>
                 <div id="acc">
                   <button onclick="location.href='login.php'">Already have an account?</button>

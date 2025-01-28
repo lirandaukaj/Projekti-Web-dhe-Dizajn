@@ -33,7 +33,7 @@ function formaValidation(event){
         password.focus();
         return false;
     }
-    window.location.href = "../homePage.php";
+    form.submit();
     return true;
 }
 form.addEventListener('submit',formaValidation);
