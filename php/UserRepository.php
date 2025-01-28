@@ -37,6 +37,41 @@ class UserRepository{
 
     return $users;
   }
+
+  function getUserById($id){
+    $conn = $this->connection;
+    
+    $sql = "SELECT * FROM users WHERE id='$id'";
+
+    $stmt = $conn->query($sql);
+    $users = $stmt->fetch();
+
+    return $users;
+  }
+
+  function updateUser($id, $name, $surname, $email, $password) {
+    $conn = $this->connection;
+
+    $sql = "UPDATE users SET name=?, surname=?, email=?, password=? WHERE id=?";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->execute([$name, $surname, $email, $password, $id]);
+
+    echo "<script> alert('Update was successful');</script";
+  }
+
+  function deleteUser($id) {
+    $conn = $this->connection;
+
+    $sql ="DELETE FROM users WHERE id=?";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->execute([$id]);
+
+    echo "<script>aler('Delete was successful');</script>";
+  }
 }
 
 
