@@ -15,8 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')  {
         header("Location: ../homePage.php");
         exit;
     } else {
-        echo "Invalid email or password";
+        echo"<script>alert('Invalid email or password!'); window.location = '../login.php'; </script>";
     }
-} 
+    }
+    
 
 

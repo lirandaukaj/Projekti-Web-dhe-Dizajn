@@ -6,7 +6,7 @@ class UserRepository{
 
   function __construct(){
     $conn = new Database();
-    $this->connection = $conn->startConnection();
+    $this->connection = $conn->getConnection();
   }
 
   function insertUser($users){
@@ -30,7 +30,7 @@ class UserRepository{
   function getAllUsers(){
     $conn = $this->connection;
 
-    $sql = "SELECT - FROM users";
+    $sql = "SELECT * FROM users";
 
     $statement = $conn->query($sql);
     $users = $statement->fetchAll();

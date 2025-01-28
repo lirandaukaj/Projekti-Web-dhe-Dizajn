@@ -7,6 +7,18 @@ class User {
         $this->conn = $db;
     }
 
+    public function userExists($email){
+        $query = "SELECT * FROM users WHERE email= :email";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email',$email);
+        $stmt->execute();
+
+        if($stmt->rowCount()>0){
+            return true;
+        }
+        return false;
+    }
+
     public function register($name, $surname, $email, $password) {
         $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
 
