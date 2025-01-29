@@ -8,6 +8,9 @@ $db = new Database();
 $connection = $db->getConnection();
 $logger = new Logger($connection);
 
+if (!isset($_SESSION['user_id'])) {
+  die("Error: User is not logged in.");
+}
 $userId = $_SESSION['user_id'];
 $title = $_POST['title'];
 $description =$_POST['description'];

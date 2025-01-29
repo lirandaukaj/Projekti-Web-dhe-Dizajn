@@ -28,13 +28,27 @@
         </tr>
         <?php foreach ($logs as $log): ?>
             <tr>
-                <td><?= $log['name']; ?></td>
+                <td><?= $log['user_id']; ?></td>
                 <td><?= $log['created_at']; ?></td>
                 <td><?= $log['level']; ?></td>
                 <td><?= $log['message']; ?></td>
             </tr>
         <?php endforeach; ?>
     </table> <br> <br>
+    <h2>Manage Events</h2>
+
+    <form action="php/changes.php" method="POST">
+        <label for="title">Event Title:</label>
+        <input type="text" name="title" id="title" required><br>
+
+        <label for="description">Event Description:</label>
+        <textarea name="description" id="description" required></textarea><br>
+
+        <label for="image">Event Image:</label>
+        <input type="file" name="image" id="image" required><br>
+
+        <input type="submit" name="submit" value="Add Event">
+    </form>
     <table border="1">
      
         <tr>
