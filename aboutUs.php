@@ -116,57 +116,98 @@ $aboutUsContent = $aboutUs->getContent();
 
   </header>
 </div>
-</section>
 <section id="section2">
-  <div id="main-text">
-    <h1 id="menu"><?php echo $aboutUsContent[0]['title']; ?></h1>
-  </div>
-  <div id="cooking-team">
-   <img src="img/<?php echo $aboutUsContent[0]['image']; ?>" alt="Chefs">
-  </div>
-  <div id="desc">
-    <p><?php echo $aboutUsContent[0]['text']; ?></p>
-  </div>
-</section>
+  <?php 
   
-  <section id="section3">
-    <div id="heading">
-      <h1><?php echo $aboutUsContent[1]['title'];?></h1>
+  if(count($aboutUsContent) > 0){
+    $topSection = $aboutUsContent[0]; 
+  ?>
+    <div id="main-text">
+      <h1 id="menu"><?php echo $topSection['title']; ?></h1>
     </div>
-    <div id="desc1">
-      <p><?php echo $aboutUsContent[1]['text'];?></p>
+    <div id="cooking-team">
+      <img src="/Projekti-Web-dhe-Dizajn/<?php echo $topSection['image']; ?>" alt="Chefs">
     </div>
-  </section>
+    <div id="desc">
+      <p><?php echo $topSection['text']; ?></p>
+    </div>
+  <?php } ?>
+</section>
 
-  <section id="section4">
-    <div id ="header">
-      <h1><?php echo $aboutUsContent[2]['title'];?></h1>
-    </div>
-    <div id="desc2">
-      <p><?php echo $aboutUsContent[2]['text'];?></p>
-    </div>
-    <img src="img/<?php echo $aboutUsContent[2]['image'];?>" alt="" id="image">
-    <div id="list">
-      <ul>
-        <?php
-foreach ($aboutUsContent[2]['listArray'] as $item) {
-  echo "<li>" . htmlspecialchars($item) . "</li>";
-}
-        ?>
-      </ul>
-    </div>
-  </section>
-  <section id="section5">
-    <div id="header1">
-      <h1><?php echo $aboutUsContent[3]['title'];?></h1>
-    </div>
-    <div id="desc3">
-      <p><?php echo $aboutUsContent[3]['text']?></p>
-    </div>
-    <img src="img/<?php echo $aboutUsContent[3]['image'] ?>" alt="" id="image1">
-
-
-  </section>
+<section id="section3">
+  <?php 
+        if(count($aboutUsContent)) {
+        foreach($aboutUsContent as $key => $content) {
+          if($key === 0) {
+            continue;
+          }
+    
+  ?>
+        <div id="main-text">
+          <h1 id="menu"><?php echo $content['title']; ?></h1>
+        </div>
+        <div id="desc">
+          <p><?php echo $content['text']; ?></p>
+        </div>
+  <?php 
+        break;
+      }
+    }
+  
+  ?>
+</section>
+<section id="section4">
+  <?php 
+  if(count($aboutUsContent) > 2) { 
+    foreach($aboutUsContent as $key => $content) {
+      if($key === 2) { 
+        $content['lista'] = explode('.', $content['lista']);
+  ?>
+        <div id="header">
+          <h1><?php echo ($content['title']); ?></h1>
+        </div>
+        <div id="desc2">
+          <p><?php echo (($content['text'])); ?></p>
+        </div>
+        <img src="img/<?php echo ($content['image']); ?>" alt="" id="image">
+        
+        <div id="list">
+          <ul>
+            <?php 
+            if(is_array($content['lista']) && !empty($content['lista'])):
+              foreach($content['lista'] as $item) : ?>
+                <li><?php echo (trim($item)); ?> </li>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </ul>
+        </div>
+  <?php 
+        break; 
+      }
+    }
+  }
+  ?>
+</section>
+<section id="section5">
+  <?php 
+  if(count($aboutUsContent) > 3) { 
+    foreach($aboutUsContent as $key => $content) {
+      if($key === 3) { 
+  ?>
+        <div id="main-text">
+          <h1><?php echo $content['title']; ?></h1>
+        </div>
+        <div id="desc3">
+          <p><?php echo $content['text']; ?></p>
+        </div>
+        <img src="img/<?php echo $content['image']; ?>" alt="" id="image1">
+  <?php 
+        break;
+      }
+    }
+  }
+  ?>
+</section>
 </body>
 <footer class="footer">
   <section class="section4">
