@@ -8,8 +8,33 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <?php
+     require_once 'php/Database.php';
+     require_once 'php/Logger.php';
+     $db = new Database();
+     $connection = $db->getConnection();
+     $logger = new Logger($connection);
 
- 
+     $logs = $logger->getLogs();
+
+    ?>
+     <h2>Changes</h2>
+    <table border="1">
+        <tr>
+            <th>User</th>
+            <th>Time</th>
+            <th>Level</th>
+            <th>Message</th>
+        </tr>
+        <?php foreach ($logs as $log): ?>
+            <tr>
+                <td><?= $log['name']; ?></td>
+                <td><?= $log['created_at']; ?></td>
+                <td><?= $log['level']; ?></td>
+                <td><?= $log['message']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table> <br> <br>
     <table border="1">
      
         <tr>

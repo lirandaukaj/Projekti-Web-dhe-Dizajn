@@ -143,12 +143,12 @@ class events{
                 }
           ?>
               <div class="pjesa2">
-                <div class="image">
-                  <img src="/Projekti-Web-dhe-Dizajn/<?php echo $event['foto'] ?>" alt="<?php echo $event['titulli'] ?>">
+                <div class="image" method="POST">
+                  <img  name= "image" src="/Projekti-Web-dhe-Dizajn/<?php echo $event['foto'] ?>" alt="<?php echo $event['titulli'] ?>">
                 </div>
-                <div class="description">
-                  <h2><?php echo $event['titulli'] ?></h2>
-                  <p><?php echo $event['pershkrimi'] ?></p><br><br>
+                <div class="description" method= "POST">
+                  <h2 name = "title"><?php echo $event['titulli'] ?></h2>
+                  <p name = "description"><?php echo $event['pershkrimi'] ?></p><br><br>
                   <div class="elem">
                     <p><i class="fa-regular fa-calendar"></i> Saturday 11th of August</p><br>
                     <p><i class="fa-regular fa-clock"></i> 19:00</p><br>
