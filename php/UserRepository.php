@@ -41,13 +41,15 @@ class UserRepository{
   function getUserById($id){
     $conn = $this->connection;
     
-    $sql = "SELECT * FROM users WHERE id='$id'";
+    $sql = "SELECT * FROM users WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    return $stmt->fetch();
 
-    $stmt = $conn->query($sql);
-    $users = $stmt->fetch();
+}
 
-    return $users;
-  }
 
   function updateUser($id, $name, $surname, $email, $password) {
     $conn = $this->connection;
@@ -58,7 +60,7 @@ class UserRepository{
 
     $stmt->execute([$name, $surname, $email, $password, $id]);
 
-    echo "<script> alert('Update was successful');</script";
+    echo "<script> alert('Update was successful');</script>";
   }
 
   function deleteUser($id) {
