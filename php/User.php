@@ -19,14 +19,15 @@ class User {
         return false;
     }
 
-    public function register($name, $surname, $email, $password) {
-        $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
+    public function register($name, $surname, $email, $password, $role = 'user') {
+        $query = "INSERT INTO {$this->table_name} (name, surname, email, password, role) VALUES (:name, :surname, :email, :password, :role)";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':surname', $surname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT));
+        $stmt->bindParam(':role', $role);
 
         if ($stmt->execute()) {
             return true;
@@ -35,7 +36,7 @@ class User {
     }
 
     public function login($email, $password) {
-        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE email = :email";
+        $query = "SELECT id, name, surname, email, password, role FROM {$this->table_name} WHERE email = :email";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
@@ -47,6 +48,7 @@ class User {
                 session_start();
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['email'] = $row['email'];
+                $_SESSION['role'] = $row['role'];
                 return true;
             }
         }

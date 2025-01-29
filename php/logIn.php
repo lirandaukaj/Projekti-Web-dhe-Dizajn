@@ -12,7 +12,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')  {
     $password = $_POST['password'];
 
     if($user->login($email, $password)) {
+        if($_SESSION['role'] === 'admin'){
+            header("Location: ../dashboard.php");
+        } else {
         header("Location: ../homePage.php");
+        }
         exit;
     } else {
         echo"<script>alert('Invalid email or password!'); window.location = '../login.php'; </script>";

@@ -12,12 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $surname = $_POST['surname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+
+    $role = 'user';
+
+    if(strpos($email,'@admin.com') !== false){
+        $role = 'admin';
+    }
     if ($user->userExists($email)) {
         echo "<script>alert('User with this email already exists!'); window.location = '../register.php';</script>";
         exit;
     }
    else{
-    if ($user->register($name, $surname, $email, $password)) {
+    if ($user->register($name, $surname, $email, $password, $role)) {
     header("Location: ../login.php");
     exit;
     } else {
