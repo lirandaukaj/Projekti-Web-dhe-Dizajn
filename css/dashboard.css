@@ -69,10 +69,12 @@ nav ul li button{
     width: 80%; 
     margin: 20px auto; 
     border-collapse: collapse; 
+    text-align: center;
 }
 .dashTable th, .dashTable td {
     border: 2px solid #973131; 
     padding: 10px;
+    font-size: 17px;
 }
 
 .dashTable th {
@@ -86,4 +88,27 @@ h2 {
     font-weight: bold;
     font-size: 30px;
     color: #973131;
+}
+#formAdd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#formAdd .inputa{
+    font-size: 18px;
+    font-weight: bold;
+    color: #973131;
+    padding: 8px;
+}
+.dashButon{
+    padding: 13px 68px;
+    color: white;
+    background-color: #973131;
+    font-weight: bold;
+    font-size: 14spx;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
 }

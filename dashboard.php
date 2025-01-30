@@ -7,6 +7,7 @@ require_once "php/Logger.php";
 require_once "php/Events.php";
 
 
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     echo "Access Denied!";
     exit;
@@ -64,7 +65,7 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         
         <nav>
           <ul>
-          <li><a href="homePage.php"><button>Log Out</button></a></li>
+          <li><a href="php/logout.php"><button>Log Out</button></a></li>
           </ul>
         </nav>
       </header>
@@ -76,9 +77,9 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
     <table class="dashTable">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>EMAIL</th>
         </tr>
         <?php foreach ($users as $u) { ?>
         <tr>
@@ -94,12 +95,12 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
     <table class="dashTable">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>EMAIL</th>
+            <th>PASSWORD</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
         </tr>
         <?php foreach ($users as $user) { ?>
         <tr>
@@ -113,7 +114,43 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         </tr>
         <?php } ?>
     </table>
+    <h2>MANAGE EVENTS</h2>
+    <form action="php/changes.php" method="POST" id="formAdd">
+        <label for="title" class="inputa">EVENT TITLE:</label>
+        <input type="text" name="title" id="title" required><br>
 
+        <label for="description" class="inputa">EVENT DESCRIPTION:</label>
+        <textarea name="description" class="inputa" required></textarea><br>
+
+        <label for="foto" id="foto" class="inputa">EVENT IMAGE:</label>
+        <input type="file" name="foto" required><br>
+
+        <input type="submit" name="submit" value="Add Event" class="dashButon">
+    </form>
+    <h2>DELETE EVENTS</h2>
+    <table class="dashTable">
+        <thead>
+            <tr>
+                <th>EVENT ID</th>
+                <th>EVENT TITLE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($getContent as $event) { ?>
+            <tr>
+                <td><?= $event['id']; ?></td>
+                <td><?= $event['titulli']; ?></td>
+                <td>
+                    <form action="php/deleteEvent.php" method="POST">
+                        <input type="hidden" name="event_id" value="<?= $event['id']; ?>" />
+                        <button type="submit" name="delete_event" class="dashButon">Delete Event</button>
+                    </form>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
     <h2>CHANGES</h2>
     <table class="dashTable">
         <tr>
@@ -130,52 +167,15 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
     </table><br><br>
 
-    <h2>MANAGE EVENTS</h2>
-    <form action="php/changes.php" method="POST">
-        <label for="title">Event Title:</label>
-        <input type="text" name="title" id="title" required><br>
 
-        <label for="description">Event Description:</label>
-        <textarea name="description" id="description" required></textarea><br>
-
-        <label for="foto">Event Image:</label>
-        <input type="file" name="foto" id="foto" required><br>
-
-        <input type="submit" name="submit" value="Add Event">
-    </form>
-
-    <h2>EVENT LIST</h2>
-    <table class="dashTable">
-        <thead>
-            <tr>
-                <th>Event ID</th>
-                <th>Event Title</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($getContent as $event) { ?>
-            <tr>
-                <td><?= $event['id']; ?></td>
-                <td><?= $event['titulli']; ?></td>
-                <td>
-                    <form action="php/deleteEvent.php" method="POST">
-                        <input type="hidden" name="event_id" value="<?= $event['id']; ?>" />
-                        <button type="submit" name="delete_event">Delete Event</button>
-                    </form>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
 
     <h2>CONTACT MESSAGES</h2>
     <table class="dashTable">
         <tr>
-            <th>Message ID</th>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Message</th>
+            <th>MESSAGE ID</th>
+            <th>USER NAME</th>
+            <th>EMAIL</th>
+            <th>MESSAGE</th>
          
         </tr>
         <?php foreach ($messages as $msg) { ?>

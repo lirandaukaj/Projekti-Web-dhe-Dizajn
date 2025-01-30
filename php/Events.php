@@ -79,14 +79,13 @@ class Events {
       $this->conn->beginTransaction();
   
       try {
-          // Delete from eventsChanges table
           $query = "DELETE FROM eventsChanges WHERE id = :event_id AND user_id = :user_id";
           $stmt = $this->conn->prepare($query);
           $stmt->bindParam(":event_id", $eventId);
           $stmt->bindParam(":user_id", $userId);
           $stmt->execute();
   
-          // Delete from events table
+          
           $queryEvent = "DELETE FROM events WHERE id = :event_id";
           $stmtEvent = $this->conn->prepare($queryEvent);
           $stmtEvent->bindParam(":event_id", $eventId);

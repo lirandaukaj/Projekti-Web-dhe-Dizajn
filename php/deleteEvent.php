@@ -6,20 +6,16 @@ require_once 'Events.php';
 $db = new Database();
 $conn = $db->getConnection();
 $events = new Events($conn);
-
-// var_dump($_POST);
-// exit; 
 if (isset($_POST['delete_event']) && isset($_POST['event_id'])) {
   $eventId = $_POST['event_id']; 
   $userId = $_SESSION['user_id'];
 
-  // Debugging output
   echo "Event ID: " . $eventId;
   echo "User ID: " . $userId;
 
   $result = $events->deleteEvent($eventId, $userId);
 
-  echo $result; // Show the result of the delete operation
+  echo $result; 
 
   header('Location: ../dashboard.php');
   exit();
