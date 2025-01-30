@@ -101,12 +101,14 @@
         At Seray, we believe dining should be as rewarding as it is enjoyable.When you become a member, you unlock <b>exclusive discounts,tailored offers, and exciting promotions </b> that make every visit special. Share your experiences through <b>REVIEWS</b>, and we'll show our appreciation with extra perks that enhance your time with us. Join the Seray community today and enjoy exceptional food, outstanding service, and benefits designed just for you!</p>
         <Br>
     </div>
-    <ul id="bullet">
-      <li>SPECIAL SURPRISES</li>
-      <li>DISCOUNTS</li>
-      <li>EXITING DEALS</li>
-      <li>REWARDS FOR LOYALTY</li>
-    </ul>
+    <div id="bullet">
+      <h4>Contact us for a special discount</h4>
+      <form action="php/ContactUs.php"  method="POST">
+        <textarea name="contactus" id="contactus" required></textarea><br>
+        <button type="submit" id="conButton">Submit</button>
+    </form>
+    </div>
+
     <div class="butoni">
       <a href="register.php"><button>Join Us</button></a>
     </div>

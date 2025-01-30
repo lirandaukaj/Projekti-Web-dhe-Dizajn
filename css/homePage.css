@@ -267,6 +267,15 @@ nav ul li button{
   margin-top: -350px;
   margin-right: 60px;
 }
+ #conButton{
+  padding: 8px;
+  color: white;
+  background-color: #973131;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 5px;
+  border: none;
+}
 
 .main-desc1{
   font-weight: bold;
