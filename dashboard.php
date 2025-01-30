@@ -7,6 +7,8 @@
     <title>Dashboard</title>
 </head>
 <body>
+   
+    <a href="homePage.php"><button>Log Out</button></a>
     <?php
     require_once 'php/Database.php';
     require_once 'php/Logger.php';
@@ -26,14 +28,14 @@
         <tr>
             <th>User ID</th>
             <th>Time</th>
-            <th>Level</th>
+            <!-- <th>Level</th> -->
             <th>Message</th>
         </tr>
         <?php foreach ($logs as $log): ?>
             <tr>
                 <td><?= $log['user_id']; ?></td>
                 <td><?= $log['created_at']; ?></td>
-                <td><?= $log['level']; ?></td>
+                <!-- <td><?= $log['level']; ?></td> -->
                 <td><?= $log['message']; ?></td>
             </tr>
         <?php endforeach; ?>
@@ -113,6 +115,33 @@
             }
             ?>
         </tbody>
+    </table>
+    <?php 
+    require_once "php/Database.php";
+    require_once "php/UserRepository.php";
+
+    $db = new Database();
+    $connection = $db->getConnection();
+
+    $user = new UserRepository($connection);
+    $users = $user->getAllUsers();
+    ?>
+    <h2>Registered Users</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+        </tr>
+        <?php foreach($users as $u) {?>
+         <tr>
+            <td><?= $u['id']; ?></td>
+            <td><?= $u['name']; ?></td>
+            <td><?= $u['surname']?></td>
+            <td><?= $u['email']; ?></td>
+         </tr>
+        <?php } ?>
     </table>
 
 </body>
