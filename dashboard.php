@@ -65,6 +65,7 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         
         <nav>
           <ul>
+          <li><a href="homePage.php"><button>Home Page</button></a></li>
           <li><a href="php/logout.php"><button>Log Out</button></a></li>
           </ul>
         </nav>
