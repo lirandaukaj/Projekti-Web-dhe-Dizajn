@@ -9,7 +9,7 @@ class Logger{
     }
     public function log($user_id,$level, $message) {
         $date = date("Y-m-d H:i:s");
-        $this->logs[] = "[$date] [$level] $message";
+        $this->logs[] = "[$date] [$level] [$message]";
 
         $query = "INSERT INTO logs (user_id,level, message, created_at) VALUES (:user_id, :level, :message, NOW())";
         $stmt = $this->connection->prepare($query);

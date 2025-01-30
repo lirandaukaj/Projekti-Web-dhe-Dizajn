@@ -1,6 +1,7 @@
 <?php
+include_once 'Database.php';
 
-class events {
+class Events {
     private $conn;
     private $table = 'events';
 
@@ -8,19 +9,16 @@ class events {
         $this->conn = $dbConn;
     }
 
-    public function insertContent($titulli, $pershkrimi, $foto) {
-        // Check if the event already exists in the 'events' table
+    public function insertContent($titulli, $pershkrimi, $foto, $user_id) {
         $checkQuery = "SELECT * FROM events WHERE titulli = :titulli";
         $stmt = $this->conn->prepare($checkQuery);
         $stmt->bindParam(':titulli', $titulli);
         $stmt->execute();
 
-        // If event exists, return false
         if ($stmt->rowCount() > 0) {
-            return false;
+            return false; 
         }
 
-        // Insert into the 'events' table
         $query = "INSERT INTO events (titulli, pershkrimi, foto) VALUES (:titulli, :pershkrimi, :foto)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':titulli', $titulli);
@@ -28,19 +26,18 @@ class events {
         $stmt->bindParam(':foto', $foto);
         $stmt->execute();
 
-        // Insert into the 'eventsChanges' table (with a note of the change)
-        $this->insertIntoEventsChanges($titulli, 'added', 'Event inserted into events table');
+        $this->insertIntoEventsChanges($titulli, 'Event added', $user_id, $foto);
 
         return true;
     }
 
-    public function insertIntoEventsChanges($titulli, $action, $description) {
-        // Insert a record in 'eventsChanges' table to track changes
-        $query = "INSERT INTO eventsChanges (titulli, action, description) VALUES (:titulli, :action, :description)";
+    public function insertIntoEventsChanges($title, $description, $user_id, $foto) {
+        $query = "INSERT INTO eventsChanges (title, description, user_id, foto) VALUES (:title, :description, :user_id, :foto)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':titulli', $titulli);
-        $stmt->bindParam(':action', $action);
+        $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':foto', $foto);
 
         return $stmt->execute();
     }
@@ -52,29 +49,24 @@ class events {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // New method to insert from 'eventsChanges' to 'events'
     public function insertFromEventsChanges() {
-        // Get all records from the 'eventsChanges' table
         $query = "SELECT * FROM eventsChanges";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $changes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Loop through each record in 'eventsChanges' and insert it into the 'events' table
         foreach ($changes as $change) {
-            // Make sure the event doesn't already exist in the 'events' table
             $checkQuery = "SELECT * FROM events WHERE titulli = :titulli";
             $stmtCheck = $this->conn->prepare($checkQuery);
-            $stmtCheck->bindParam(':titulli', $change['titulli']);
+            $stmtCheck->bindParam(':titulli', $change['title']);
             $stmtCheck->execute();
 
             if ($stmtCheck->rowCount() == 0) {
-                // Insert event into 'events' table
                 $queryInsert = "INSERT INTO events (titulli, pershkrimi, foto) VALUES (:titulli, :pershkrimi, :foto)";
                 $stmtInsert = $this->conn->prepare($queryInsert);
-                $stmtInsert->bindParam(':titulli', $change['titulli']);
-                $stmtInsert->bindParam(':pershkrimi', $change['description']);  // Assuming 'description' is used as 'pershkrimi'
-                $stmtInsert->bindParam(':foto', $change['action']);  // Assuming 'action' contains 'foto' or related data
+                $stmtInsert->bindParam(':titulli', $change['title']);
+                $stmtInsert->bindParam(':pershkrimi', $change['description']);
+                $stmtInsert->bindParam(':foto', $change['foto']);
 
                 $stmtInsert->execute();
             }
@@ -82,5 +74,36 @@ class events {
 
         return true;
     }
+
+    public function deleteEvent($eventId, $userId) {
+      $this->conn->beginTransaction();
+  
+      try {
+          // Delete from eventsChanges table
+          $query = "DELETE FROM eventsChanges WHERE id = :event_id AND user_id = :user_id";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bindParam(":event_id", $eventId);
+          $stmt->bindParam(":user_id", $userId);
+          $stmt->execute();
+  
+          // Delete from events table
+          $queryEvent = "DELETE FROM events WHERE id = :event_id";
+          $stmtEvent = $this->conn->prepare($queryEvent);
+          $stmtEvent->bindParam(":event_id", $eventId);
+          $stmtEvent->execute();
+  
+          $this->conn->commit();
+          return "Event deleted successfully from both eventsChanges and events tables.";
+      } catch (PDOException $e) {
+          $this->conn->rollBack();
+          return "Error: " . $e->getMessage();
+      }
+  }
+  
+  
+  
+  
+  
 }
 ?>
+

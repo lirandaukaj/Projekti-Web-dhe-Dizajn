@@ -1,46 +1,17 @@
 <?php
 include_once 'php/Database.php';
-class events{
-  private $conn;
-  private $table = 'events';
+include_once'php/Events.php';
+$db = new Database();
+$conn = $db->getConnection();
+$events = new Events($conn);
+$eventsContent = $events->getContent();
 
-  public function __construct($dbConn){
-    $this->conn=$dbConn;
-  }
-  public function insertContent($titulli,$pershkrimi,$foto){
-    $checkQuery = "SELECT * FROM events WHERE titulli = :titulli";
-    $stmt = $this->conn->prepare($checkQuery);
-    $stmt->bindParam(':titulli',$titulli);
-    $stmt->execute();
 
-    if($stmt->rowCount() > 0){
-      return false;
-    }
-    $query = "INSERT INTO events (titulli,pershkrimi,foto) VALUES (:titulli, :pershkrimi,:foto)";
-    $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':titulli',$titulli);
-    $stmt->bindParam(':pershkrimi',$pershkrimi);
-    $stmt->bindParam(':foto',$foto);
-    return $stmt->execute();
-  }
-
-  public function getContent(){
-    $query = "SELECT * FROM events";
-    $stmt = $this->conn->prepare($query);
-    $stmt->execute();
-    $eventsContent = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // foreach($eventsContent as $key => $content) {
-    //   if(isset($content))
-    // }
-
-    return $eventsContent;
-  }
-}
   $db = new Database();
   $conn = $db->getConnection();
-  $events = new events($conn);
+  $events = new Events($conn);
   $eventsContent = $events->getContent();
+  $events->insertFromEventsChanges();
 
   if(empty($eventsContent)){
     $events->insertContent(
