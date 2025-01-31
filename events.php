@@ -5,12 +5,6 @@ $db = new Database();
 $conn = $db->getConnection();
 $events = new Events($conn);
 $eventsContent = $events->getContent();
-
-
-  $db = new Database();
-  $conn = $db->getConnection();
-  $events = new Events($conn);
-  $eventsContent = $events->getContent();
   $events->insertFromEventsChanges();
 
   if(empty($eventsContent)){

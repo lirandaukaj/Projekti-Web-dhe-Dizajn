@@ -8,18 +8,18 @@ class Menu{
   public function __construct($dbConn){
     $this->conn=$dbConn;
   }
-  public function insertContent($title,$image,$img_title,$description,$button) {
-    $checkQuery = "SELECT * FROM menu WHERE title = :title";
+  public function insertContent($image,$img_title,$description,$button) {
+    $checkQuery = "SELECT * FROM menu WHERE image = :image";
     $stmt = $this->conn->prepare($checkQuery);
-    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':image', $image);
     $stmt->execute();
 
     if($stmt->rowCount() > 0) {
       return false;
     }
-    $query = "INSERT INTO menu (title,image,img_title,description,button) VALUES (:title, :image, :img_title,:description, :button)";
+    $query = "INSERT INTO menu (image,img_title,description,button) VALUES ( :image, :img_title,:description, :button)";
     $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':title',$title);
+    // $stmt->bindParam(':title',$title);
     $stmt->bindParam(':image', $image);
     $stmt->bindParam(':img_title', $img_title);
     $stmt->bindParam(':description', $description);
@@ -42,79 +42,127 @@ $menu = new Menu($conn);
 $menuContent = $menu->getContent();
 
 
-if(empty($menuContent)) {
+// if(empty($menuContent)) {
+//   $menu->insertContent(
+//     "MENU",
+//      "",
+//      "",
+//      "",
+//      ""
+//   );
+//   $menu->insertContent(
+//     "Breakfast",
+//     "",
+//     "",
+//     "",
+//     "",
+//   );
   $menu->insertContent(
-    "MENU",
-     "",
-     "",
-     "",
-     ""
-  );
-  $menu->insertContent(
-    "Breakfast",
-    "",
-    "",
-    "",
-    "",
-  );
-  $menu->insertContent(
-    "",
+    // "",
     "img/crepes.png",
     "Nutella Crepes",
     "A warm crepe with Nutella and fresh banana slices, lightly dusted with powdered sugar.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/oats.png",
     "Berry Crunch Bowl",
      "A berry crunch bowl with granola, fresh strawberries, and pomegranate seeds.",
      "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/waffles.png",
     "Fruity Waffles",
     "Crispy waffles topped with fresh fruit and vanilla ice cream.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/pancakes.png",
     "Classic Pancakes",
     "Soft pancakes served with a mix of fresh berries and sliced fruits.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/avocadotoast.png",
     "Avocado Toast",
     "Toast with avocado, soft eggs, and pine nuts for a simple and tasty snack.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/bagel.png",
     "Egg Bagel",
     "Toasted bagel filled with eggs, greens, and cured meat for a tasty meal.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/croissants.png",
     "Croissants",
     "Crispy croissants dressed with chocolate, almonds, and sugar.",
     "Order"
   );
   $menu->insertContent(
-    "",
+    // "",
     "img/eggs.png",
     "Scrambled Eggs",
     "Soft scrambled eggs served with slices of black bread.",
     "Order"
   );
+  $menu->insertContent(
+    "img/steak.png",
+    "Juicy Steak",
+    "A juicy steak with a crisp, browned outside and tender inside.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/pasta.png",
+    "Penne Bolognese",
+    "Penne pasta topped with a rich, savory bolognese sauce.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/rice.png",
+    "Thai Fried Rice",
+    "Thai rice with beans and meat made with soft, fragrant rice, tender beans, and flavorful meat.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/meat.png",
+    "Chicken with Patatoes",
+    "A savory dish featuring tender, perfectly cooked chicken paired with crispy potatoes.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/pizza.png",
+    "Pizza",
+    "Various pizzas with fresh toppings, cheese, and a crispy crust.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/burger.png",
+    "Golden Burger",
+    "A flavorful burger with fresh toppings and a toasted bun, served with crispy french fries.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/fish.png",
+    "Grilled Fish",
+    "Grilled fish with a perfectly cooked fillet, served with fresh sides and a light seasoning.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/sushi.png",
+    "Sushi",
+    "Different sushi made with fresh ingredients, seasoned rice, and prepared to perfection.",
+    "Order"
+  );
  
-}
+
 $menuContent = $menu->getContent();
 ?>
 <!DOCTYPE html>
@@ -149,47 +197,43 @@ $menuContent = $menu->getContent();
   </header>
 </div>
 </section>
+<section id="section2">
+  <div id="main-text">
+    <h1 id="menu">MENU</h1>
+  </div>
 
-<?php
-    if(count($menuContent) > 0) {
-        $currentCategory = '';  
-  
+  <div class="body-text">
+    <h1>Breakfast</h1>
+  </div>
 
-        echo "<section id='section2'>";
+  <?php
+    if (count($menuContent) > 0) {
+        echo '<div class="container">'; 
 
-   foreach($menuContent as $content) {
-            
-    if (empty($content['title']) && empty($content['img_title']) && empty($content['description'])) {
-                continue;  
+        foreach ($menuContent as $content) {
+            if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
+                continue;
             }
-   
-      if (!empty($content['title']) && $content['title'] != $currentCategory) {
-     
-                $currentCategory = $content['title'];
-                echo "<div class='body-text'><h1>{$content['title']}</h1></div>";
-                
-            }
-            
-            if (!empty($content['img_title']) && !empty($content['description'])) {
-                echo "
-                 <div class='container'>
-                  <div class='card'>
-                    <img src='{$content['image']}' alt='Foto1'>
-                    <div class='description'>
-                      <h3>{$content['img_title']}</h3>
-                      <p>{$content['description']}</p>
-                      <button>{$content['button']}</button>
-                    </div>
-                  </div>
-                  </div>
-        
-                ";
-            }
+
+            echo "
+              <div class='card'>
+                <img src='{$content['image']}' alt='{$content['img_title']}'>
+                <div class='description'>
+                  <h3>{$content['img_title']}</h3>
+                  <p>{$content['description']}</p>
+                  <button>{$content['button']}</button>
+                </div>
+              </div>
+            ";
         }
+
+        echo '</div>'; 
     } else {
         echo "<p>No menu items available.</p>";
     }
-    ?>
+  ?>
+</section>
+
   
     <!-- <div class="card">
     <img src="img/oats.png" alt="Foto2">
@@ -254,7 +298,33 @@ $menuContent = $menu->getContent();
   <div class="body-text">
     <h1>Dinner</h1>
   </div>
-  <div class="container">
+  <?php
+    if (count($menuContent) > 0) {
+        echo '<div class="container">'; 
+
+        foreach ($menuContent as $content) {
+            if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
+                continue;
+            }
+
+            echo "
+              <div class='card'>
+                <img src='{$content['image']}' alt='{$content['img_title']}'>
+                <div class='description'>
+                  <h3>{$content['img_title']}</h3>
+                  <p>{$content['description']}</p>
+                  <button>{$content['button']}</button>
+                </div>
+              </div>
+            ";
+        }
+
+        echo '</div>'; 
+    } else {
+        echo "<p>No menu items available.</p>";
+    }
+  ?>
+  <!-- <div class="container">
     <div class="card">
       <img src="img/steak.png" alt="Foto9">
       <div class="description">
@@ -319,7 +389,7 @@ $menuContent = $menu->getContent();
         <button>Order</button>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="body-text">
     <h1>Special Drinks</h1>
   </div>

@@ -31,9 +31,10 @@ if(isset($_POST['editBtn'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
+    <link rel="stylesheet" href="css/edit.css">
 </head>
 <body>
-    <h3>Edit User</h3>
+    <h3 id="edit">Edit User</h3>
     <form action="" method="POST">
         <input type="text" name="id" value="<?=$user['id']?>" readonly> <br> <br>
         <input type="text" name="name" value="<?=$user['name']?>" > <br> <br>
