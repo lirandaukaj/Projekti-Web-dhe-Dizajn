@@ -116,7 +116,7 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
     </table>
     <h2>MANAGE EVENTS</h2>
-    <form action="php/changes.php" method="POST" id="formAdd">
+    <form action="php/changes.php" method="POST" id="formAdd" enctype="multipart/form-data">
         <label for="title" class="inputa">EVENT TITLE:</label>
         <input type="text" name="title" id="title" required><br>
 

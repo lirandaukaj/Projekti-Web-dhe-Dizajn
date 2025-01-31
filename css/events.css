@@ -77,33 +77,7 @@ body{
     margin-right: 20px;
     cursor: pointer;
 }
-/* #section2{
-    background-color: white;
-    min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid #973131;
-}
- .image1{
-    margin-left: 720px;
-    margin-top: 40px;
-    max-height: 440px;
-    max-width: 400px;
-}
-.image1 img{
-    border-radius: 17px;
-}
-.main{
-  padding-bottom: 100px;
-}
- .main h1{
-    font-weight: bold;
-    color: #973131;
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 40px;
-} */
+
 .main-event {
   border-top: 2px solid #973131;
   max-width: 1600px;
@@ -138,25 +112,6 @@ body{
   }
 }
 
-/* .pjesa1{
-    align-content: center;
-    margin-top: 70px;
-    margin-bottom:-350px;
-    margin-left: 70px;
-    color: #973131;
-}
- .pjesa1 p{
-    margin-top: 20px;
-    width:600px;
-    position: relative;
-    right: 70px;
-    bottom: 450px;
-    text-align: justify;
-    font-size: 20px;
-    line-height: 23px;
-    margin-left: 5px;
-    margin-right: 500px;
-}  */
 
 #section3{
     background-color: white;
@@ -412,9 +367,7 @@ body{
       font-size: 14px;
     }
   
-    /* .footer .contact {
-      font-size: 12px;
-    } */
+   
     .links{
       font-size: 18px;
       margin-left: 8px;

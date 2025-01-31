@@ -80,7 +80,6 @@ $eventsContent = $events->getContent();
       if(count($eventsContent)) {
         $topSection = $eventsContent[0];
     ?>
-          <!-- <div class="container1"> -->
           <div class="main-event">
             <h1 class="main-event__headline"><?php echo $topSection["titulli"] ?></h1>
             <div class="main-event__holder">
@@ -94,12 +93,12 @@ $eventsContent = $events->getContent();
               </figure>
             </div>
           </div>
-          <!-- </div> -->
+  
     <?php
       }  
     ?>
     <section id="section3">
-        <!-- <div class="container2"> -->
+     
           <?php 
             if(count($eventsContent)) {
               foreach($eventsContent as $key => $event) {
@@ -130,69 +129,6 @@ $eventsContent = $events->getContent();
               }
             }
           ?>
-            <!-- <div class="pjesa2">
-                <div class="image">
-                <img src="img/winetasting.png" alt="winetasting">
-                </div>
-                <div class="description">
-                <h2>Wine Tasting</h2>
-                <p>Sip, savor, and explore a curated selection of fine wines at our exclusive tasting event. Guided by a professional sommelier, enjoy expert insights, delightful pairings, and an elegant ambiance. Perfect for wine lovers and curious beginners alike!</p><br><br>
-                <div class="elem">
-                <p><i class="fa-regular fa-calendar"></i> Saturday 11th of August</p><br>
-                <p><i class="fa-regular fa-clock"></i> 19:00</p><br>
-                <a href="register.php"><button>Click For More !</button></a>
-              </div>
-                </div>
-            
-            </div>
-            <hr class="line">
-            <div class="pjesa2">
-              <div class="image">
-                <img src="img/chefsspecials.png" alt="chefsspecials">
-              </div>
-              <div class="description">
-                <h2>Chef's specials</h2>
-                <p>Indulge your taste buds with a night of exclusive creations at our Chef's Specials Night! This one-of-a-kind event showcases the culinary artistry and innovation of our talented chef, featuring a specially curated menu available for one night only.</p><br><br>
-                <div class="elem">
-                <p><i class="fa-regular fa-calendar"></i> Wednesday 15th of August</p><br>
-                <p><i class="fa-regular fa-clock"></i> 20:00</p><br>
-                <a href="register.php"><button>Click For More !</button></a>
-              </div>
-              </div>
-            </div>
-            <hr class="line">
-            <div class="pjesa2">
-              <div class="image">
-              <img src="img/livemusic.png" alt="Live Music">
-              </div>
-              <div class="description">
-              <h2>Rhythms and Flavors</h2>
-              <p>Join us for an evening of tasty dishes and live classical music. Enjoy the relaxing atmosphere as talented musicians fill the room with gentle melodies, creating the perfect backdrop for your meal. Rhythms and Flavors is all about good food and beautiful music coming together.</p><br><br>
-              <div class="elem">
-              <p><i class="fa-regular fa-calendar"></i> Friday 17th of August</p><br>
-              <p><i class="fa-regular fa-clock"></i> 20:00</p><br>
-              <a href="register.php"><button>Click For More !</button></a>
-            </div>
-              </div>
-          
-          </div>
-          <hr class="line">
-          <div class="pjesa2">
-            <div class="image">
-            <img src="img/gourmet.png" alt="Global gourmet">
-            </div>
-            <div class="description">
-            <h2>Global Gourmet Experience</h2>
-            <p>Take your taste buds on a journey with an evening dedicated to international cuisine. Explore a menu inspired by flavors from across the globe, featuring unique dishes crafted with fresh, local ingredients. Flavors of the World is the perfect way to experience a variety of cultures through food, all in one unforgettable night.</p><br><br>
-            <div class="elem">
-            <p><i class="fa-regular fa-calendar"></i> Tuesday 21th of August</p><br>
-            <p><i class="fa-regular fa-clock"></i> 17:00</p><br>
-            <a href="register.php"><button>Click For More !</button></a>
-          </div>
-        </div>
-        
-        </div> -->
-        <!-- </div> -->
        
     </section>
 

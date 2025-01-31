@@ -164,35 +164,7 @@ cursor: pointer;
   font-size: 26px;
   line-height: 30px;
  }
- /* #section5{
-  color: #973131;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 50px;
-  border-top: 2px solid #973131;
-  border-radius: 7px;
-  padding: 20px;
- }
- #header1{
-  margin-left: 620px;
-  font-weight: bold;
-  font-size: 36px;
- }
- #desc3{
-  font-size: 23px;
-  line-height: 20px;
-  text-align: justify;
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 150px;
- }
-  #image1{
-  width: 400px;
-  height: 400px;
-  margin-top: 90px;
-  margin-left: 335px;
-  border-radius: 10px;
- } */
+
  #section5 {
   display: flex;
   flex-direction: column;
@@ -205,22 +177,7 @@ cursor: pointer;
   border-radius: 7px;
   padding: 20px;
 }
-/* 
-#header1 {
-    margin-left: 50px;
-    font-weight: bold;
-    font-size: 36px;
-    margin-top: 20px;
-   } */
 
-
-/* .content-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-} */
 
 #desc3 { 
   font-size: 23px;
@@ -289,54 +246,6 @@ cursor: pointer;
 }
 
 
-
-
-
-/* @media only screen and (max-width: 768px){
-  #section1{
-    height: 350px;
-  }
-  header{
-    flex-direction: column;
-  }
-  #logo img{
-    margin-top: -10px;
-  }
-  #text-logo{
-    margin-top: -10px;
-    margin-left: 5px;
-  }
-  nav ul li{
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    margin-top: 2px;
-    margin-right: 85px;
-    padding: 4px;
-  }
-  nav ul li button{
-    margin-left: 18px;
-    margin-top: 2px;
-  }
-  .links a , .contact{
-    font-size: 19px;
-  }
-  #main-text{
-    width: 300px;
-    font-size: 24px;
-    margin-right: 650px;
-  }
-  #cooking-team img{
-    height: 315px;
-    width: 595px;
-    margin-right: 560px;
-  }
-  #desc p{
-    font-size: 18px;
-    height: 260px;
-    width: 615px;
-  }
-} */
 @media only screen and (max-width: 768px) {
   #section1{
     height: 350px;

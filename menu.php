@@ -8,212 +8,228 @@ class Menu{
   public function __construct($dbConn){
     $this->conn=$dbConn;
   }
-  public function insertContent($image,$img_title,$description,$button) {
-    $checkQuery = "SELECT * FROM menu WHERE image = :image";
-    $stmt = $this->conn->prepare($checkQuery);
-    $stmt->bindParam(':image', $image);
-    $stmt->execute();
+  
+public function insertContent($image, $img_title, $description, $button, $category) {
 
-    if($stmt->rowCount() > 0) {
+  $query = "SELECT COUNT(*) FROM menu WHERE img_title = :img_title";
+  $stmt = $this->conn->prepare($query);
+  $stmt->bindParam(':img_title', $img_title);
+  $stmt->execute();
+  $count = $stmt->fetchColumn();
+
+  if ($count > 0) {
       return false;
-    }
-    $query = "INSERT INTO menu (image,img_title,description,button) VALUES ( :image, :img_title,:description, :button)";
-    $stmt = $this->conn->prepare($query);
-    // $stmt->bindParam(':title',$title);
-    $stmt->bindParam(':image', $image);
-    $stmt->bindParam(':img_title', $img_title);
-    $stmt->bindParam(':description', $description);
-    $stmt->bindParam(':button',$button);
-    return $stmt->execute();
   }
 
-  public function getContent() {
-    $query = "SELECT * FROM menu";
+  
+  $query = "INSERT INTO menu (image, img_title, description, button, category) 
+            VALUES (:image, :img_title, :description, :button, :category)";
+  
+  $stmt = $this->conn->prepare($query);
+  $stmt->bindParam(':image', $image);
+  $stmt->bindParam(':img_title', $img_title);
+  $stmt->bindParam(':description', $description);
+  $stmt->bindParam(':button', $button);
+  $stmt->bindParam(':category', $category);
+
+  return $stmt->execute();
+}
+
+
+
+ 
+  public function getContentByCategory($category) {
+    $query = "SELECT * FROM menu WHERE category = :category";
     $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':category', $category);
     $stmt->execute();
-    $menuContent = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
-    return $menuContent;
-  }
 }
 $db = new Database();
 $conn = $db->getConnection();
 $menu = new Menu($conn);
-$menuContent = $menu->getContent();
+$breakfastItems = $menu->getContentByCategory('Breakfast');
+$dinnerItems = $menu->getContentByCategory('Dinner');
+$drinksItems = $menu->getContentByCategory('Drinks');
 
 
-// if(empty($menuContent)) {
-//   $menu->insertContent(
-//     "MENU",
-//      "",
-//      "",
-//      "",
-//      ""
-//   );
-//   $menu->insertContent(
-//     "Breakfast",
-//     "",
-//     "",
-//     "",
-//     "",
-//   );
+
   $menu->insertContent(
-    // "",
+  
     "img/crepes.png",
     "Nutella Crepes",
     "A warm crepe with Nutella and fresh banana slices, lightly dusted with powdered sugar.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/oats.png",
     "Berry Crunch Bowl",
      "A berry crunch bowl with granola, fresh strawberries, and pomegranate seeds.",
-     "Order"
+     "Order",
+     "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/waffles.png",
     "Fruity Waffles",
     "Crispy waffles topped with fresh fruit and vanilla ice cream.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/pancakes.png",
     "Classic Pancakes",
     "Soft pancakes served with a mix of fresh berries and sliced fruits.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/avocadotoast.png",
     "Avocado Toast",
     "Toast with avocado, soft eggs, and pine nuts for a simple and tasty snack.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/bagel.png",
     "Egg Bagel",
     "Toasted bagel filled with eggs, greens, and cured meat for a tasty meal.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/croissants.png",
     "Croissants",
     "Crispy croissants dressed with chocolate, almonds, and sugar.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
-    // "",
     "img/eggs.png",
     "Scrambled Eggs",
     "Soft scrambled eggs served with slices of black bread.",
-    "Order"
+    "Order",
+    "Breakfast"
   );
   $menu->insertContent(
     "img/steak.png",
     "Juicy Steak",
     "A juicy steak with a crisp, browned outside and tender inside.",
-    "Order"
+    "Order",
+    "Dinner"
   );
   $menu->insertContent(
     "img/pasta.png",
     "Penne Bolognese",
     "Penne pasta topped with a rich, savory bolognese sauce.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/rice.png",
     "Thai Fried Rice",
     "Thai rice with beans and meat made with soft, fragrant rice, tender beans, and flavorful meat.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/meat.png",
     "Chicken with Patatoes",
     "A savory dish featuring tender, perfectly cooked chicken paired with crispy potatoes.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/pizza.png",
     "Pizza",
     "Various pizzas with fresh toppings, cheese, and a crispy crust.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/burger.png",
     "Golden Burger",
     "A flavorful burger with fresh toppings and a toasted bun, served with crispy french fries.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/fish.png",
     "Grilled Fish",
     "Grilled fish with a perfectly cooked fillet, served with fresh sides and a light seasoning.",
-    "Order"
+    "Order",
+     "Dinner"
   );
   $menu->insertContent(
     "img/sushi.png",
     "Sushi",
     "Different sushi made with fresh ingredients, seasoned rice, and prepared to perfection.",
-    "Order"
+    "Order",
+     "Dinner"
   );
     $menu->insertContent(
     "img/margarita.png",
     "Classic Margarita",
     "A Margarita with tequila, lime juice, and a salted rim. Refreshing and tangy, served cold.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/mojito.png",
     "Mojito",
     "Rum, fresh mint, lime, and soda water combined for a crisp, refreshing drink.",
-    "Order"
+    "Order",
+    "Drinks"
   );
   $menu->insertContent(
     "img/aperol.png",
     "Aperol Spritz",
     "A refreshing cocktail with Aperol, prosecco, and soda.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/colada.png",
     "Piña Colada",
     "A creamy blend of coconut, pineapple, and rum for a refreshing tropical drink.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/martini.png",
     "Dirty Martini",
     "A classic martini with olive brine, offering a savory twist on the traditional cocktail.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/daiquriri.png",
     "Vodka Daiquiri",
     "A refreshing cocktail made with vodka, lime juice, and simple syrup.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/sunrise.png",
     "Tequila Sunrise",
     "A vibrant cocktail with tequila, orange juice, and grenadine, creating a sunrise effect.",
-    "Order"
+    "Order",
+     "Drinks"
   );
   $menu->insertContent(
     "img/mango.png",
     "Spicy Mango Margarita",
     "A refreshing margarita with mango, a kick of spice, and a tangy twist.",
-    "Order"
+    "Order",
+    "Drinks"
   );
 
 
  
 
-$menuContent = $menu->getContent();
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -248,296 +264,59 @@ $menuContent = $menu->getContent();
 </div>
 </section>
 <section id="section2">
-  <div id="main-text">
-    <h1 id="menu">MENU</h1>
-  </div>
-
-  <div class="body-text">
+<div class="body-text">
     <h1>Breakfast</h1>
-  </div>
+</div>
+<div class="container">
+<?php foreach ($breakfastItems as $item): ?>
+    <div class="card">
+        <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
+        <div class="description">
+            <h3><?= $item['img_title'] ?></h3>
+            <p><?= $item['description'] ?></p>
+            <button><?= $item['button'] ?></button>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
 
-  <?php
-    if (count($menuContent) > 0) {
-        echo '<div class="container">'; 
-
-        foreach ($menuContent as $content) {
-            if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
-                continue;
-            }
-           
-
-            echo "
-              <div class='card'>
-                <img src='{$content['image']}' alt='{$content['img_title']}'>
-                <div class='description'>
-                  <h3>{$content['img_title']}</h3>
-                  <p>{$content['description']}</p>
-                  <button>{$content['button']}</button>
-                </div>
-              </div>
-            ";
-        }
-
-        echo '</div>'; 
-    } else {
-        echo "<p>No menu items available.</p>";
-    }
-  ?>
-  </section>
-
-  
-    <!-- <div class="card">
-    <img src="img/oats.png" alt="Foto2">
-      <div class="description">
-        <h3>Berry Crunch Bowl</h3>
-        <p>
-          A berry crunch bowl with granola, fresh strawberries, and pomegranate seeds.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/waffles.png" alt="Foto3">
-      <div class="description">
-        <h3>Fruity Waffles</h3>
-        <p>
-          Crispy waffles topped with fresh fruit and vanilla ice cream.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/pancakes.png" alt="Foto4">
-      <div class="description">
-        <h3>Classic Pancakes</h3>
-        <p>Soft pancakes served with a mix of fresh berries and sliced fruits.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/avocadotoast.png" alt="Foto5">
-      <div class="description">
-        <h3>Avocado Toast</h3>
-        <p>Toast with avocado, soft eggs, and pine nuts for a simple and tasty snack.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/bagel.png" alt="Foto7">
-      <div class="description">
-        <h3>Egg Bagel</h3>
-        <p>Toasted bagel filled with eggs, greens, and cured meat for a tasty meal.
-        </p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/croissants.png" alt="Foto6">
-      <div class="description">
-        <h3>Croissants</h3>
-        <p>Crispy croissants dressed with chocolate, almonds, and sugar.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/eggs.png" alt="Foto8">
-      <div class="description">
-        <h3>Scrambled Eggs</h3>
-        <p>Soft scrambled eggs served with slices of black bread.</p>
-        <button>Order</button>
-      </div>
-    </div>
-  </div> -->
+ 
   <div class="body-text">
     <h1>Dinner</h1>
-  </div>
-  <?php
-    if (count($menuContent) > 0) {
-        echo '<div class="container">'; 
+</div>
+<div class="container">
+<?php foreach ($dinnerItems as $item): ?>
+    <div class="card">
+        <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
+        <div class="description">
+            <h3><?= $item['img_title'] ?></h3>
+            <p><?= $item['description'] ?></p>
+            <button><?= $item['button'] ?></button>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
 
-        foreach ($menuContent as $content) {
-            if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
-                continue;
-            }
-
-            echo "
-              <div class='card'>
-                <img src='{$content['image']}' alt='{$content['img_title']}'>
-                <div class='description'>
-                  <h3>{$content['img_title']}</h3>
-                  <p>{$content['description']}</p>
-                  <button>{$content['button']}</button>
-                </div>
-              </div>
-            ";
-        }
-
-        echo '</div>'; 
-    } else {
-        echo "<p>No menu items available.</p>";
-    }
-  ?>
-  <!-- <div class="container">
-    <div class="card">
-      <img src="img/steak.png" alt="Foto9">
-      <div class="description">
-        <h3>Juicy Steak</h3>
-        <p>A juicy steak with a crisp, browned outside and tender inside.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/pasta.png" alt="Foto10">
-      <div class="description">
-        <h3>Penne Bolognese</h3>
-        <p>Penne pasta topped with a rich, savory bolognese sauce</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/rice.png" alt="Foto11">
-      <div class="description">
-        <h3>Thai Fried Rice</h3>
-        <p>Thai rice with beans and meat made with soft, fragrant rice, tender beans, and flavorful meat.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/meat.png" alt="Foto12">
-      <div class="description">
-        <h3>Chicken with Patatoes</h3>
-        <p>A savory dish featuring tender, perfectly cooked chicken paired with crispy potatoes.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/pizza.png" alt="Foto13">
-      <div class="description">
-        <h3>Pizza</h3>
-        <p>Various pizzas with fresh toppings, cheese, and a crispy crust.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/burger.png" alt="Foto14">
-      <div class="description">
-        <h3>Golden Burger</h3>
-        <p>A flavorful burger with fresh toppings and a toasted bun, served with crispy french fries.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/fish.png" alt="Foto15">
-      <div class="description">
-        <h3>Grilled Fish</h3>
-        <p>Grilled fish with a perfectly cooked fillet, served with fresh sides and a light seasoning.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
-      <img src="img/sushi.png" alt="Foto16">
-      <div class="description">
-        <h3>Sushi</h3>
-        <p>Different sushi made with fresh ingredients, seasoned rice, and prepared to perfection.</p>
-        <button>Order</button>
-      </div>
-    </div>
-  </div> -->
+  
   <div class="body-text">
     <h1>Special Drinks</h1>
-  </div>
-    <?php 
-   if(count($menuContent) > 0) {
-    echo '<div class="container">';  
+</div>
+<div class="container">
+<?php foreach ($drinksItems as $item): ?>
+    <div class="card1">
+        <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
+        <div class="description1">
+            <h3><?= $item['img_title'] ?></h3>
+            <p><?= $item['description'] ?></p>
+            <button><?= $item['button'] ?></button>
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
 
-    foreach ($menuContent as $content) {
-      if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
-          continue;
-      }
-     
-        echo "
-         <div class='card1'>
-        <img src='{$content['image']}' alt='{$content['img_title']}'>
-        <div class='description1'>
-          <h3>{$content['img_title']}</h3>
-          <p>{$content['description']}</p>
-          <button>{$content['button']}</button>
-        </div>
-      </div>
-      ";
-    }
 
-    echo '</div>'; 
-  } else {
-    echo "<p>No menu items available.</p>";
-  }
-  
-    ?> 
-    <!-- <div class="container">
-      <div class="card1">
-        <img src="img/margarita.png" alt="Foto17">
-        <div class="description1">
-          <h3>Classic Margarita</h3>
-          <p>A Margarita with tequila, lime juice, and a salted rim. Refreshing and tangy, served cold.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/mojito.png" alt="Foto18">
-        <div class="description1">
-          <h3>Mojito</h3>
-          <p>Rum, fresh mint, lime, and soda water combined for a crisp, refreshing drink.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/aperol.png" alt="Foto19">
-        <div class="description1">
-          <h3>Aperol Spritz</h3>
-          <p>A refreshing cocktail with Aperol, prosecco, and soda.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/colada.png" alt="Foto20">
-        <div class="description1">
-          <h3>Piña Colada</h3>
-          <p>A creamy blend of coconut, pineapple, and rum for a refreshing tropical drink.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/martini.png" alt="Foto21">
-        <div class="description1">
-          <h3>Dirty Martini</h3>
-          <p>A classic martini with olive brine, offering a savory twist on the traditional cocktail.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/daiquriri.png" alt="Foto22">
-        <div class="description1">
-          <h3>Vodka Daiquiri</h3>
-          <p>A refreshing cocktail made with vodka, lime juice, and simple syrup.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/sunrise.png" alt="Foto23">
-        <div class="description1">
-          <h3>Tequila Sunrise</h3>
-          <p>A vibrant cocktail with tequila, orange juice, and grenadine, creating a sunrise effect.</p>
-          <button>Order</button>
-        </div>
-      </div>
-      <div class="card1">
-        <img src="img/mango.png" alt="Foto24">
-        <div class="description1">
-          <h3>Spicy Mango Margarita</h3>
-          <p>A refreshing margarita with mango, a kick of spice, and a tangy twist.</p>
-          <button>Order</button>
-        </div>
-      </div>
-    </div>  -->
-     <!-- </section>  -->
+ 
+     </section>
 
 </body>
 <footer class="footer">
