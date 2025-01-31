@@ -1,3 +1,122 @@
+<?php
+include_once 'php/Database.php';
+
+class Menu{
+  private $conn;
+  private $table_name = 'menu';
+
+  public function __construct($dbConn){
+    $this->conn=$dbConn;
+  }
+  public function insertContent($title,$image,$img_title,$description,$button) {
+    $checkQuery = "SELECT * FROM menu WHERE title = :title";
+    $stmt = $this->conn->prepare($checkQuery);
+    $stmt->bindParam(':title', $title);
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0) {
+      return false;
+    }
+    $query = "INSERT INTO menu (title,image,img_title,description,button) VALUES (:title, :image, :img_title,:description, :button)";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':title',$title);
+    $stmt->bindParam(':image', $image);
+    $stmt->bindParam(':img_title', $img_title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':button',$button);
+    return $stmt->execute();
+  }
+
+  public function getContent() {
+    $query = "SELECT * FROM menu";
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    $menuContent = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $menuContent;
+  }
+}
+$db = new Database();
+$conn = $db->getConnection();
+$menu = new Menu($conn);
+$menuContent = $menu->getContent();
+
+
+if(empty($menuContent)) {
+  $menu->insertContent(
+    "MENU",
+     "",
+     "",
+     "",
+     ""
+  );
+  $menu->insertContent(
+    "Breakfast",
+    "",
+    "",
+    "",
+    "",
+  );
+  $menu->insertContent(
+    "",
+    "img/crepes.png",
+    "Nutella Crepes",
+    "A warm crepe with Nutella and fresh banana slices, lightly dusted with powdered sugar.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/oats.png",
+    "Berry Crunch Bowl",
+     "A berry crunch bowl with granola, fresh strawberries, and pomegranate seeds.",
+     "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/waffles.png",
+    "Fruity Waffles",
+    "Crispy waffles topped with fresh fruit and vanilla ice cream.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/pancakes.png",
+    "Classic Pancakes",
+    "Soft pancakes served with a mix of fresh berries and sliced fruits.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/avocadotoast.png",
+    "Avocado Toast",
+    "Toast with avocado, soft eggs, and pine nuts for a simple and tasty snack.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/bagel.png",
+    "Egg Bagel",
+    "Toasted bagel filled with eggs, greens, and cured meat for a tasty meal.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/croissants.png",
+    "Croissants",
+    "Crispy croissants dressed with chocolate, almonds, and sugar.",
+    "Order"
+  );
+  $menu->insertContent(
+    "",
+    "img/eggs.png",
+    "Scrambled Eggs",
+    "Soft scrambled eggs served with slices of black bread.",
+    "Order"
+  );
+ 
+}
+$menuContent = $menu->getContent();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,23 +149,49 @@
   </header>
 </div>
 </section>
-<section id="section2">
-  <div id="main-text">
-    <h1 id="menu">MENU</h1>
-  </div>
-  <div class="body-text">
-    <h1>Breakfast</h1>
-  </div>
-  <div class="container">
-    <div class="card">
-      <img src="img/crepes.png" alt="Foto1">
-      <div class="description">
-        <h3>Nutella Crepe</h3>
-        <p>A warm crepe with Nutella and fresh banana slices, lightly dusted with powdered sugar.</p>
-        <button>Order</button>
-      </div>
-    </div>
-    <div class="card">
+
+<?php
+    if(count($menuContent) > 0) {
+        $currentCategory = '';  
+  
+
+        echo "<section id='section2'>";
+
+   foreach($menuContent as $content) {
+            
+    if (empty($content['title']) && empty($content['img_title']) && empty($content['description'])) {
+                continue;  
+            }
+   
+      if (!empty($content['title']) && $content['title'] != $currentCategory) {
+     
+                $currentCategory = $content['title'];
+                echo "<div class='body-text'><h1>{$content['title']}</h1></div>";
+                
+            }
+            
+            if (!empty($content['img_title']) && !empty($content['description'])) {
+                echo "
+                 <div class='container'>
+                  <div class='card'>
+                    <img src='{$content['image']}' alt='Foto1'>
+                    <div class='description'>
+                      <h3>{$content['img_title']}</h3>
+                      <p>{$content['description']}</p>
+                      <button>{$content['button']}</button>
+                    </div>
+                  </div>
+                  </div>
+        
+                ";
+            }
+        }
+    } else {
+        echo "<p>No menu items available.</p>";
+    }
+    ?>
+  
+    <!-- <div class="card">
     <img src="img/oats.png" alt="Foto2">
       <div class="description">
         <h3>Berry Crunch Bowl</h3>
@@ -105,7 +250,7 @@
         <button>Order</button>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="body-text">
     <h1>Dinner</h1>
   </div>
@@ -244,7 +389,8 @@
         </div>
       </div>
     </div>
-</section>
+    </section>
+
 </body>
 <footer class="footer">
   <section class="section4">
