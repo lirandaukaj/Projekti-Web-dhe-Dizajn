@@ -161,6 +161,56 @@ $menuContent = $menu->getContent();
     "Different sushi made with fresh ingredients, seasoned rice, and prepared to perfection.",
     "Order"
   );
+    $menu->insertContent(
+    "img/margarita.png",
+    "Classic Margarita",
+    "A Margarita with tequila, lime juice, and a salted rim. Refreshing and tangy, served cold.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/mojito.png",
+    "Mojito",
+    "Rum, fresh mint, lime, and soda water combined for a crisp, refreshing drink.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/aperol.png",
+    "Aperol Spritz",
+    "A refreshing cocktail with Aperol, prosecco, and soda.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/colada.png",
+    "Piña Colada",
+    "A creamy blend of coconut, pineapple, and rum for a refreshing tropical drink.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/martini.png",
+    "Dirty Martini",
+    "A classic martini with olive brine, offering a savory twist on the traditional cocktail.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/daiquriri.png",
+    "Vodka Daiquiri",
+    "A refreshing cocktail made with vodka, lime juice, and simple syrup.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/sunrise.png",
+    "Tequila Sunrise",
+    "A vibrant cocktail with tequila, orange juice, and grenadine, creating a sunrise effect.",
+    "Order"
+  );
+  $menu->insertContent(
+    "img/mango.png",
+    "Spicy Mango Margarita",
+    "A refreshing margarita with mango, a kick of spice, and a tangy twist.",
+    "Order"
+  );
+
+
  
 
 $menuContent = $menu->getContent();
@@ -214,6 +264,7 @@ $menuContent = $menu->getContent();
             if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
                 continue;
             }
+           
 
             echo "
               <div class='card'>
@@ -232,7 +283,7 @@ $menuContent = $menu->getContent();
         echo "<p>No menu items available.</p>";
     }
   ?>
-</section>
+  </section>
 
   
     <!-- <div class="card">
@@ -393,7 +444,34 @@ $menuContent = $menu->getContent();
   <div class="body-text">
     <h1>Special Drinks</h1>
   </div>
-    <div class="container">
+    <?php 
+   if(count($menuContent) > 0) {
+    echo '<div class="container">';  
+
+    foreach ($menuContent as $content) {
+      if (empty($content['image']) || empty($content['img_title']) || empty($content['description'])) {
+          continue;
+      }
+     
+        echo "
+         <div class='card1'>
+        <img src='{$content['image']}' alt='{$content['img_title']}'>
+        <div class='description1'>
+          <h3>{$content['img_title']}</h3>
+          <p>{$content['description']}</p>
+          <button>{$content['button']}</button>
+        </div>
+      </div>
+      ";
+    }
+
+    echo '</div>'; 
+  } else {
+    echo "<p>No menu items available.</p>";
+  }
+  
+    ?> 
+    <!-- <div class="container">
       <div class="card1">
         <img src="img/margarita.png" alt="Foto17">
         <div class="description1">
@@ -458,8 +536,8 @@ $menuContent = $menu->getContent();
           <button>Order</button>
         </div>
       </div>
-    </div>
-    </section>
+    </div>  -->
+     <!-- </section>  -->
 
 </body>
 <footer class="footer">
