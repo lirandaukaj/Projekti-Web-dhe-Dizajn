@@ -9,7 +9,10 @@ require_once "php/Events.php";
 
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    echo "Access Denied!";
+    echo "<script>
+            alert('You should be logged in as an admin to access this page!');
+            window.location.href = 'login.php'; // Redirect to the login page
+          </script>";
     exit;
 }
 
@@ -155,13 +158,13 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
     <h2>CHANGES</h2>
     <table class="dashTable">
         <tr>
-            <th>User ID</th>
+            <th>Admin ID</th>
             <th>Time</th>
             <th>Message</th>
         </tr>
         <?php foreach ($logs as $log) { ?>
         <tr>
-            <td><?= $log['user_id']; ?></td>
+            <td><?= $log['admin_id']; ?></td>
             <td><?= $log['created_at']; ?></td>
             <td><?= $log['message']; ?></td>
         </tr>

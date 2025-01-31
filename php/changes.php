@@ -66,25 +66,21 @@ function handleFileUpload($file) {
         die("File upload failed. Please try again.");
     }
 
-    
+   
     $targetDir = "img/"; 
-
+    
+    
     $fileName = basename($file['name']);
     $targetFile = $targetDir . $fileName;
 
-
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    if (!in_array($file['type'], $allowedTypes)) {
-        die("Only image files (JPEG, PNG, GIF) are allowed.");
-    }
-
-  
-    if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
+    
+    if (!move_uploaded_file($file['tmp_name'], "../" . $targetFile)) {
         die("Error uploading the file.");
     }
 
-    return $targetFile;
+    return $targetFile; 
 }
+
 
 ?>
 

@@ -1,5 +1,6 @@
 <?php
 include_once 'Database.php';
+include_once 'User.php';
 class Logger{
     private $connection;
     private $logs = [];
@@ -7,25 +8,15 @@ class Logger{
     public function __construct($dbConnection) {
         $this->connection = $dbConnection;
     }
-    public function log($user_id,$level, $message) {
+    public function log($admin_id,$message) {
         $date = date("Y-m-d H:i:s");
-        $this->logs[] = "[$date] [$level] [$message]";
+        $this->logs[] = "[$date][$message]";
 
-        $query = "INSERT INTO logs (user_id,level, message, created_at) VALUES (:user_id, :level, :message, NOW())";
+        $query = "INSERT INTO logs (admin_id, message, created_at) VALUES (:admin_id, :message, NOW())";
         $stmt = $this->connection->prepare($query);
-        $stmt->bindParam(":user_id",$user_id);
-        $stmt->bindParam(":level", $level);
+        $stmt->bindParam(":admin_id",$admin_id);
         $stmt->bindParam(":message", $message);
         $stmt->execute();
-    }
-    public function info($user_id,$message) {
-        $this->log($user_id,"INFO",$message);
-    }
-    public function warning($user_id,$message) {
-        $this->log($user_id,"WARNING", $message);
-    }
-    public function error($user_id,$message) {
-        $this->log($user_id,"ERROR", $message);
     }
 
     public function getLogs() {
