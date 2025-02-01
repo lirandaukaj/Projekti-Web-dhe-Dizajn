@@ -8,10 +8,9 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-
-if (isset($_GET['logout'])) {
+  if(isset($_GET['logout'])){
     $user->logout();
-    header("Location: index.php");
+    header('Location: homePage.php');
     exit();
 }
 ?>

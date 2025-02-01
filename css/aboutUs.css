@@ -250,22 +250,26 @@ cursor: pointer;
   #section1{
     height: 350px;
   }
+  .container{
+    height: 350px;
+  }
   header{
     flex-direction: column;
   }
   #logo img{
     margin-top: -10px;
+    margin-right: 6px;
   }
   #text-logo{
     margin-top: -10px;
-    margin-left: 5px;
+    margin-left: 56px;
   }
   nav ul li{
     width: 100%;
     text-align: center;
     justify-content: center;
     margin-top: 2px;
-    margin-right: 85px;
+    margin-right: 40px;
     padding: 4px;
   }
   nav ul li button{
@@ -279,17 +283,40 @@ cursor: pointer;
     height: 70%;
     width: 70%;
     font-size: 150%;
-    margin-right: 85%;
+    margin-right: 142%;
+  }
+  #main-text h1{
+    margin-left:40%;
   }
   #cooking-team img {
     height: 40%;
     width: 50%;
-    margin-left: -10%;
+    margin-left: -35%;
   }
   #desc p {
     font-size: 115%;
     height: 35%;
-    width: 50%;
+    width: 25%;
+  }
+  #header{
+    font-size:25px;
+  }
+  #desc2{
+    width:50%;
+  }
+  #desc3 {
+    margin-right: 120%;
+    width:50%;
+  }
+  #image{
+    margin-left:20%;
+  }
+  #list{
+    width:50%;
+    margin-left:25%;
+  }
+  #image1 {
+    margin-right:120%
   }
   .logo{
     margin-right: 20px;
