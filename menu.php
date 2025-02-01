@@ -268,7 +268,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
     <h1>Breakfast</h1>
 </div>
 <div class="container">
-<?php foreach ($breakfastItems as $item): ?>
+<?php foreach ($breakfastItems as $item) {?>
     <div class="card">
         <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
         <div class="description">
@@ -277,7 +277,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
             <button><?= $item['button'] ?></button>
         </div>
     </div>
-<?php endforeach; ?>
+<?php } ?>
 </div>
 
  
@@ -285,7 +285,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
     <h1>Dinner</h1>
 </div>
 <div class="container">
-<?php foreach ($dinnerItems as $item): ?>
+<?php foreach ($dinnerItems as $item){?>
     <div class="card">
         <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
         <div class="description">
@@ -294,7 +294,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
             <button><?= $item['button'] ?></button>
         </div>
     </div>
-<?php endforeach; ?>
+<?php } ?>
 </div>
 
   
@@ -302,7 +302,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
     <h1>Special Drinks</h1>
 </div>
 <div class="container">
-<?php foreach ($drinksItems as $item): ?>
+<?php foreach ($drinksItems as $item){ ?>
     <div class="card1">
         <img src="<?= $item['image'] ?>" alt="<?= $item['img_title'] ?>">
         <div class="description1">
@@ -311,7 +311,7 @@ $drinksItems = $menu->getContentByCategory('Drinks');
             <button><?= $item['button'] ?></button>
         </div>
     </div>
-<?php endforeach; ?>
+<?php }?>
 </div>
 
 

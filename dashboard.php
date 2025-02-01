@@ -17,6 +17,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 }
 
 
+
 $db = new Database();
 $connection = $db->getConnection();
 
@@ -37,9 +38,8 @@ $logs = $logger->getLogs();
 $eventsClass = new Events($connection);
 $getContent = $eventsClass->getContent();
 
-$sql = "SELECT contact_messages.id, users.name, users.surname, users.email, contact_messages.message
-        FROM contact_messages 
-        JOIN users ON contact_messages.user_id = users.id";
+
+$sql = "SELECT * FROM contact_messages cm JOIN users u ON cm.user_id = u.id";
 $result = $connection->query($sql);
 $result->execute();
 $messages = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -85,6 +85,7 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
             <th>SURNAME</th>
             <th>EMAIL</th>
         </tr>
+
         <?php foreach ($users as $u) { ?>
         <tr>
             <td><?= $u['id']; ?></td>
@@ -118,7 +119,7 @@ $messages = $result->fetchAll(PDO::FETCH_ASSOC);
         </tr>
         <?php } ?>
     </table>
-    <h2>MANAGE EVENTS</h2>
+    <h2>INSERT EVENTS</h2>
     <form action="php/changes.php" method="POST" id="formAdd" enctype="multipart/form-data">
         <label for="title" class="inputa">EVENT TITLE:</label>
         <input type="text" name="title" id="title" required><br>

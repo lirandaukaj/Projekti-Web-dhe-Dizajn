@@ -18,6 +18,9 @@ class Logger{
         $stmt->bindParam(":message", $message);
         $stmt->execute();
     }
+    public function info($admin_id, $message) {
+        $this->log($admin_id, $message);  
+    }
 
     public function getLogs() {
         $query = "SELECT * FROM logs ORDER BY created_at DESC";

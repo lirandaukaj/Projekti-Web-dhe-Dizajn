@@ -174,11 +174,12 @@ $aboutUsContent = $aboutUs->getContent();
         <div id="list">
           <ul>
             <?php 
-            if(is_array($content['lista']) && !empty($content['lista'])):
-              foreach($content['lista'] as $item) : ?>
+            if(is_array($content['lista']) && !empty($content['lista'])){
+              foreach($content['lista'] as $item) { ?>
                 <li><?php echo (trim($item)); ?> </li>
-              <?php endforeach; ?>
-            <?php endif; ?>
+              <?php } ?>
+            <?php 
+            } ?>
           </ul>
         </div>
   <?php 
@@ -202,7 +203,7 @@ $aboutUsContent = $aboutUs->getContent();
         </div>
         <img src="img/<?php echo $content['image']; ?>" alt="" id="image1">
   <?php 
-        break;
+        
       }
     }
   }

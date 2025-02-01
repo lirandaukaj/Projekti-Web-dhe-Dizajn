@@ -1,14 +1,12 @@
 <?php
 include_once 'Database.php';
-include_once 'UserRepository.php';
 include_once 'User.php';
 
-class AuthService {
+class Register {
     private $userRepository;
     private $user;
 
-    public function __construct(UserRepository $userRepository, User $user) {
-        $this->userRepository = $userRepository;
+    public function __construct( User $user) {
         $this->user = $user;
     }
 
@@ -32,14 +30,13 @@ class AuthService {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
     $connection = $db->getConnection();
-    $userRepository = new UserRepository($connection);
     $user = new User($connection);
-    $authService = new AuthService($userRepository, $user);
+    $register = new Register($user);
 
-    $authService->registerUser($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password']);
+    $register->registerUser($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['password']);
 }
-// include_once 'Database.php';
-// include_once 'User.php';
+//  include_once 'Database.php';
+//  include_once 'User.php';
 // include_once 'UserRepository.php';
 
 // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -52,15 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //     $email = $_POST['email'];
 //     $password = $_POST['password'];
 
-    // $role = 'user';
+//     $role = 'user';
 
-    // if(strpos($email,'@admin.com') !== false){
-    //     $role = 'admin';
-    // }
-    // if ($user->userExists($email)) {
-    //     echo "<script>alert('User with this email already exists!'); window.location = '../register.php';</script>";
-    //     exit;
-    // }
+//     if(strpos($email,'@admin.com') !== false){
+//         $role = 'admin';
+//     }
+//     if ($user->userExists($email)) {
+//         echo "<script>alert('User with this email already exists!'); window.location = '../register.php';</script>";
+//         exit;
+//     }
 //    else{
 //     if ($user->register($name, $surname, $email, $password, $role)) {
 //     header("Location: ../login.php");
