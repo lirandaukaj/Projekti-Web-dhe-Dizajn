@@ -45,10 +45,15 @@
                         <input type="text" placeholder="Email" name="email" id="email"required><br>
                         <input type="password" placeholder="Password" name="password" id="password" required><br>
                         <button type="submit">LOG IN</button>
+                    
                     </form>
+                    <div id="acc">
+                  <button onclick="location.href='register.php'">Don't have an account?</button>
+
+                </div>
                 </div>
 
-
+ 
             </div>
         </div>
       </section>
