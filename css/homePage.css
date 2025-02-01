@@ -62,6 +62,17 @@ nav ul li button{
   font-weight: bold;
   border-radius: 7px;
   font-size: 13px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+ nav ul li #logoutButton{
+  padding: 13px 23px;
+  color: white;
+  background-color: #973131;
+  border: none;
+  font-weight: bold;
+  border-radius: 7px;
+  font-size: 13px;
   margin-right: 20px;
   cursor: pointer;
 }

@@ -1,3 +1,20 @@
+<?php
+session_start();
+require_once 'php/Database.php';
+require_once 'php/User.php';
+
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
+
+
+if (isset($_GET['logout'])) {
+    $user->logout();
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +41,9 @@
             <li><a href="events.php">Events</a></li>
             <li><a href="aboutUs.php">About Us</a></li>
             <li><a href="register.php"><button>Join Us</button></a></li>
+            <?php if($user->isLoggedIn()) {?>
+              <li><a href="php/logout.php"><button id="logoutButton">Log Out</button></a></li>
+             <?php } ?>
           </ul>
         </nav>
       </header>
